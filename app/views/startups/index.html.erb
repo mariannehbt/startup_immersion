@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Startups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Catch phrase</th>
+      <th>Website url</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @startups.each do |startup| %>
+      <tr>
+        <td><%= startup.name %></td>
+        <td><%= startup.catch_phrase %></td>
+        <td><%= startup.website_url %></td>
+        <td><%= startup.description %></td>
+        <td><%= link_to 'Show', startup %></td>
+        <td><%= link_to 'Edit', edit_startup_path(startup) %></td>
+        <td><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Startup', new_startup_path %>
