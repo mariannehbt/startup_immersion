@@ -6,20 +6,10 @@ factory :event do
     description {"event descrription"}
     short_location {"short location"}
     adress {"adress"}
+    zip_code {"75000"}
+    city{"paris"}
+    start_datetime{"2020-01-01 01:00:00"}
     startup
-    # startup { [association(:startup)] }
-    # startup
-    # after(:build) do |user|
-    #     event = create(:event)
-    #     user.attendances << build(:attendance, user: user, event: event)
-    #     # create_list(:events, evaluator.events_count, user: user)
-    #   end
-    #   after(:build) do |event|
-    #     # startup = create(:startup)
-    #     event.photos << FactoryGirl.build(:photo, user: user)
-    #     create(:startup, event: event)
-    #     # event << build(:event, startup: startup)
-    #     # user.sites << build(:site, :processing)
-    #   end
+
     end
 end

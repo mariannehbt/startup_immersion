@@ -87,6 +87,8 @@ RSpec.describe User, type: :model do
 
         describe "Has_many event through attendances" do
             it { expect(@user).to have_many(:events).through(:attendances) }
+            # it { should belong_to(:created_by).with_foreign_key(:created_by_id).class_name('User') }
+
         end
     end
     

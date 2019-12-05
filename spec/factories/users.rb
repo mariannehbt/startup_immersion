@@ -14,7 +14,6 @@ FactoryBot.define do
       after(:build) do |user|
         event = create(:event)
         user.attendances << build(:attendance, user: user, event: event)
-        # create_list(:events, evaluator.events_count, user: user)
       end
     end
   
