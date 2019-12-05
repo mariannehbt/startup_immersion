@@ -9,4 +9,5 @@ class User < ApplicationRecord
   belongs_to :newsletter, optional: true
   has_many :attendances
   has_many :events, through: :attendances
+
 end
