@@ -22,29 +22,48 @@ RSpec.describe User, type: :model do
             expect(@user).to be_a(User)
             expect(@event).to be_a(Event)
             # expect(@user).to be_a(User)
-
+            
+            # 
         end
 
-        # context "presence" do
-        #     it { should validate_presence_of(:first_name) }
-        #     it { should validate_presence_of(:last_name) }
-        #     it { should validate_presence_of(:email) }
-        #     it { should validate_presence_of(:encrypted_password) }
-        #   end
-
-        # context "uniqueness" do
-        #     it { should validate_uniqueness_of(:email )}
-        #     it { should validate_uniqueness_of(:username) }
-        # end
-
-        describe "#email" do
-            it { expect(@user).to validate_presence_of(:email) }
+        it "should return a string" do
+            expect(@user.email).to be_a(String)
+            expect(@user.password).to be_a(String)
+            expect(@user.password_confirmation).to be_a(String)
+            expect(@user.first_name).to be_a(String)
+            expect(@user.last_name).to be_a(String)
+            expect(@user.formation).to be_a(String)
+            expect(@user.description).to be_a(String)
+            expect(@user.linked_in_url).to be_a(String)
         end
-        describe "#password" do
-            it { expect(@user).to validate_presence_of(:password).is_at_least(6) }
-        end 
+        it "should return the Valid" do
+            expect(@user.email).to eq("email01@example.com")
+            expect(@user.password).to eq("password")
+            expect(@user.password_confirmation).to eq("password")
+            expect(@user.first_name).to eq("qwerty")
+            expect(@user.last_name).to eq("us")
+            expect(@user.formation).to eq("master")
+            expect(@user.description).to eq("etudiant")
+            expect(@user.linked_in_url).to eq("linked_in_url")
+        end
+        it "should return the Not valid" do
+            expect(@user.email).to eq("email01@example.com")
+            expect(@user.password).to eq("password")
+            expect(@user.password_confirmation).to eq("password")
+            expect(@user.first_name).to eq("qwerty")
+            expect(@user.last_name).to eq("us")
+            expect(@user.formation).to eq("master")
+            expect(@user.description).to eq("etudiant")
+            expect(@user.linked_in_url).to eq("linked_in_url")
+        end
         
-  
+        # describe "#email" do
+        #     it { expect(@user).to validate_presence_of(:email) }
+        # end
+        # describe "#password" do
+        #     it { expect(@user).to validate_presence_of(:password).is_at_least(6) }
+        # end 
+        
     end
 
     context "associations" do
@@ -59,25 +78,21 @@ RSpec.describe User, type: :model do
         end
 
         describe "belongs to newsletter" do
-          it { should belong_to(:newsletter).optional  }
-        
+          it { should belong_to(:newsletter).optional  }        
         end
              
         describe "Has_many attendances" do
-            # expect(@user).to have_many(:attendances)
-            it { should have_many(:attendances) }
+            it { expect(@user).to have_many(:attendances) }
         end
 
         describe "Has_many event through attendances" do
-            # expect(FactoryBot.create(:user)).to have_many(:events).through(:attendances)
-            it { should have_many(:events).through(:attendances) }
+            it { expect(@user).to have_many(:events).through(:attendances) }
         end
-      
-  
     end
     
     context "public instance methods" do
-    
+
+        
     end
 
 end
