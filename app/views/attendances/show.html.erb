@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Motivation:</strong>
+  <%= @attendance.motivation %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @attendance.comment %>
+</p>
+
+<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+<%= link_to 'Back', attendances_path %>
