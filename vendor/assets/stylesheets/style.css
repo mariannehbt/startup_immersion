@@ -152,17 +152,35 @@ input:-webkit-autofill:focus {
 
 
 .btn-primary {
-  color: #fff;
   background-color: #a97bff;
   border-color: #a97bff;
 }
 
 .btn-primary:hover {
-  color: #fff;
   background-color: #5531aa;
   border-color: #5531aa;
 }
 
+
+.btn-primary:focus, .btn-primary.focus {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
 
 
 /*-- 3. Button-Style --*/
