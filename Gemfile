@@ -43,10 +43,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker'
-<<<<<<< HEAD
   # gem 'rails_admin', '~> 2.0'
-=======
->>>>>>> e5fe7361894830df6420b21b3f41139f1bfdb9f4
   gem 'table_print'
 end
 
