@@ -5,8 +5,8 @@ require_relative 'application'
 Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => api_key,
-  :password => secret_key,
+  :user_name => ENV['api_key'],
+  :password => ENV['secret_key'],
   :domain => 'start-up-immersion',
   :address => 'in-v3.mailjet.com',
   :port => 587,
