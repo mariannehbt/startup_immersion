@@ -7,7 +7,7 @@ Rails.application.initialize!
 ActionMailer::Base.smtp_settings = {
   :user_name => ENV['api_key'],
   :password => ENV['secret_key'],
-  :domain => 'start-up-immersion',
+  :domain => 'heroku.com',
   :address => 'in-v3.mailjet.com',
   :port => 587,
   :authentication => :plain,
