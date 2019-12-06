@@ -115,11 +115,13 @@ input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
+/* Ajout dans style.css */
+
 .jumbotron
 {
   height: 600px;
   max-width: 100%;
-  background-color: #ded1f3;
+  background-image: url("jumbotron.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -136,15 +138,33 @@ input:-webkit-autofill:focus {
   border-radius: 50px;
 }
 
-.footer{
-background-color: #f8f9fa;
-  position: fixed;
+.footer {
+  position: bottom;
   left: 0;
   bottom: 0;
   width: 100%;
+  background-color: #f8f9fa;
   text-align: center;
-
+  padding-top: 1em;
+  margin-top: 3em;
 }
+
+
+
+.btn-primary {
+  color: #fff;
+  background-color: #a97bff;
+  border-color: #a97bff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #5531aa;
+  border-color: #5531aa;
+}
+
+
+
 /*-- 3. Button-Style --*/
 
 .bttn-white {

@@ -2,16 +2,20 @@
       <div class="container-fluid">
   <div class="jumbotron">
     <center>
-  <h1 class="display-3">Start-Up Immersion</h1>
-  <p class="lead">Bienvenue sur <strong>Start-Up Immersion</strong>, le service qui vous met en relation avec les start-up qui vous intéressent !</p>
-  <hr class="my-4">
-  <p>Connectez-vous et découvrez toutes les immersions !</p>
+  <h1 class="display-3 text-white">Start-Up Immersion</h1>
+</br>
+  <p class="lead text-white"><strong>Bienvenue sur Start-Up Immersion, le service qui vous met en relation avec les start-up qui vous intéressent ! Toujours plus de blabla, encore et toujours plus de blabla, on blablate, on blablate, blablabla blablabla, allez viens, on est bien ! </strong></p>
+</br>
+  <h3 class="display-5 text-white">Connectez-vous et découvrez toutes les immersions !
+  </h3>
+</br>
   <p class="lead">
     
-    <a class="btn btn-secondary btn-lg" href="#" role="button">Learn more</a>
-     <a class="btn btn-secondary btn-lg" href="#" role="button">Sign in</a>
+    <a class="btn btn-secondary btn-lg" role="button" <%= link_to "Découvrez les immersions", events_path %></a> 
+     <a class="btn btn-primary btn-lg" role="button" <%= link_to "Connectez-vous", new_user_registration_path %></a>
   </p>
      </center>
 
 </div>
 </div>
+
