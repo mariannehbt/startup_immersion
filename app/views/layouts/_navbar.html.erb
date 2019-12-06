@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
    <a class="navbar-brand" href="#">
-    <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+    <img src=<%= asset_path 'logo_transparent.png' %> width="100" height="100" alt="">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -15,16 +15,13 @@
         <a class="nav-link" href="#">Les événements</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Un autre onglet</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="#">Contact &nbsp;</a>
       </li>
       <li class="nav-item">
       <input class="form-control mr-sm-2" type="text" placeholder="Chercher sur le site...">
     </li>
     <li>
-     &nbsp; <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+     &nbsp; <button class="btn btn-outline-secondary btn-lg" type="submit">Search</button>
     </li>
     </ul>
 <div class="btn-group">

@@ -115,6 +115,31 @@ input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
+.jumbotron
+{
+  height: 600px;
+  max-width: 100%;
+  background-color: #ded1f3;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.dropdown-menu {
+  right: 0 !important;
+  left: auto;
+}
+
+.btn {
+  border-radius: 50px;
+}
+
+.footer{
+background-color: #f8f9fa
+
+}
 /*-- 3. Button-Style --*/
 
 .bttn-white {
