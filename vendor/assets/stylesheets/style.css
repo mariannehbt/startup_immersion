@@ -137,7 +137,12 @@ input:-webkit-autofill:focus {
 }
 
 .footer{
-background-color: #f8f9fa
+background-color: #f8f9fa;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 
 }
 /*-- 3. Button-Style --*/

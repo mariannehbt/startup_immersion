@@ -28,11 +28,22 @@
   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Connexion
   </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">S'inscrire</a>
-    <a class="dropdown-item" href="#">Se connecter</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
+
+  <% if user_signed_in? %>
+
+   <div class="dropdown-menu">
+    <a class="dropdown-item" <%= link_to "Modifier le profil", edit_user_registration_path %></a>
+    <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
   </div>
+
+  <% else %>
+
+  <div class="dropdown-menu">
+    <a class="dropdown-item" <%= link_to "Se connecter", new_user_session_path %></a>
+    <a class="dropdown-item" <%= link_to "S'inscrire", new_user_registration_path %></a>
+  </div>
+
+<% end %>
+
   </div>
 </nav>
