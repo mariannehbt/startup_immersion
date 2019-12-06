@@ -55,12 +55,12 @@ puts '*' * 60
 4.times do
 	User.create!(
 		email: Faker::Name.first_name + '.' + Faker::Name.last_name + '@yopmail.com',
-		encrypted_password: 'coucou',
+		password: 'coucou',
 		)
 end
 	User.create!(
 		email: 'alison.marceline@yopmail.com',
-		encrypted_password: 'coucou',
+		password: 'coucou',
 		)
 
 
@@ -74,7 +74,7 @@ puts '*' * 60
 	user_last_name = Faker::Name.last_name
 	User.create!(
 		email: user_first_name.parameterize.underscore + '.' + user_last_name.parameterize.underscore + '@yopmail.com',
-		encrypted_password: 'coucou',
+		password: 'coucou',
 		first_name: user_first_name,
 		last_name: user_last_name,
 		situation: Situation.all.sample,
