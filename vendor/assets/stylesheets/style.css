@@ -83,6 +83,7 @@ h6 {
 
 h1 {
     font-size: 60px;
+    padding-bottom: 1em;
 }
 
 h2 {
@@ -121,12 +122,16 @@ input:-webkit-autofill:focus {
 {
   height: 600px;
   max-width: 100%;
-  background-image: url("jumbotron.png");
+  background-image: url("city.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-left: 1.5em;
-  margin-right: 1.5em;
+    height: 100vh;
+    border-radius: 0px;
+}
+
+.navbar {
+    margin-bottom: 0px;
 }
 
 .dropdown-menu {
@@ -152,36 +157,38 @@ input:-webkit-autofill:focus {
 
 
 .btn-primary {
-  background-color: #a97bff;
-  border-color: #a97bff;
+  background-color: #5d23ba;
+  border-color: #5d23ba;
 }
 
 .btn-primary:hover {
-  background-color: #5531aa;
-  border-color: #5531aa;
+  background-color: #8053c9;
+  border-color: #8053c9;
 }
 
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  background-color: #8053c9;
+  border-color: #5f00cc;
+  box-shadow: 0 0 0 0.2rem rgba(156, 98, 216, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #8500ff;
+  border-color: #8500ff;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
+  background-color: #6a00cc;
+  border-color: #5e00bf;
 }
 
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(156, 98, 216, 0.5);
+}
 
 /*-- 3. Button-Style --*/
 
