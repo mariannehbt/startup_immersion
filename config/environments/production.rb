@@ -65,7 +65,7 @@ Rails.application.configure do
 
   # Action Mailer - marianne
   # In production, :host should be set to the actual host of your application.
-  config.action_mailer.default_url_options = { :host => 'kitty_shop.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'start-up-immersion-dev.herokuapp.com' }
 
   config.action_mailer.perform_caching = false
 
