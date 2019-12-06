@@ -1,4 +1,95 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %></br>
+  <%= link_to "Edit email / password", edit_user_registration_path %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Situation:</strong>
+  <% if @user.situation == nil %>
+    <%= @user.situation %>
+  <% else %>
+    <%= @user.situation.title %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Formation:</strong>
+  <%= @user.formation %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <% if @user.activity == nil %>
+    <%= @user.activity %>
+  <% else %>
+    <%= @user.activity.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @user.description %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @user.linked_in_url %>
+</p>
+
+<p>
+  <strong>Newsletter:</strong>
+  <%= @user.newsletter %>
+</p>
+
+<p>
+  <strong>Member since:</strong>
+  <%= @user.created_at %>
+</p>
+
+<p>
+  <strong>Last profile update:</strong>
+  <%= @user.updated_at %>
+</p>
+
+<% if @user.first_name != nil %>
+  <h2>Registration of <%= @user.first_name %> :</h2>
+<% else %>
+   <h2>Registration of this user :</h2>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.events.each do |user_attendances| %>
+      <tr>
+        <td><%= user_attendances.title %></td>
+        <td><%= user_attendances.start_datetime %></td>
+        <td><%= link_to "Details &raquo;".html_safe, event_path(user_attendances), :class =>'btn btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
