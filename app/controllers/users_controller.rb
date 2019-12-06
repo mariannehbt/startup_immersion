@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:index, :show, :edit, :update]
+  before_action :is_right_user?, only: [:show, :edit, :update]
 
   # GET /users
   # GET /users.json
@@ -69,6 +71,14 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:first_name, :last_name, :situation_id, :formation, :activity_id, :description, :linked_in_url, :newsletter_id)
+    end
+
+    def is_right_user?
+      @user = User.find(params[:id])
+      unless @user.id == current_user.id
+        flash[:danger] = "This is not your account"
+        redirect_to user_path(current_user)
+      end
     end
 end
