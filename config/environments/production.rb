@@ -63,11 +63,23 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "start_up_immersion_#{Rails.env}"
 
-  # Action Mailer - marianne
-  # In production, :host should be set to the actual host of your application.
+  # marianne
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "example.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password:ENV["GMAIL_PASSWORD"]
+  }
   config.action_mailer.default_url_options = { :host => 'start-up-immersion-dev.herokuapp.com' }
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
+
+  # # Action Mailer - marianne
+  # # In production, :host should be set to the actual host of your application.
+  # config.action_mailer.default_url_options = { :host => 'start-up-immersion-dev.herokuapp.com' }
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.perform_caching = false
 
