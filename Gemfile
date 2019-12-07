@@ -6,6 +6,7 @@ ruby '2.5.1'
 # Marianne :
 gem 'devise'
 gem 'dotenv-rails'
+gem 'rails_admin', '~> 2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
