@@ -1,14 +1,36 @@
-<h1>Static#home</h1>
-<p>Find me in app/views/static/home.html.erb</p>
+<%= render 'banner' %>
 
-<h2>User Story</h2>
+<!-- Test Devise : on peut tout supprimer ! -->
 
-<p>Quand un visiteur arrive sur le site il arrive sur une landing page qui lui présente l'entreprise. Un jumbotron est présent pour le diriger vers la liste des évènements</p>
+<div class="container">
 
-<p><%= link_to "All events &raquo;".html_safe, events_path, :class =>'btn btn-primary' %></p>
+  <h1 class="text-center">- Qui sommes nous ? -</h1>
 
-<h3>Test Devise : options à ajouter à la NavBar</h3>
 
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <div class="card">
+        <img class="card-img-top" src=<%= asset_path 'cover1.jpg' %> alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <img class="card-img-top" src=<%= asset_path 'cover2.jpg' %> alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
 <ul>
   <% if user_signed_in? %>
     <li>
@@ -17,10 +39,6 @@
 
     <li>
       Voici ton email : <%= current_user.email %>
-    </li>
-
-    <li>
-      <%= link_to "My Profile", user_path(current_user) %>
     </li>
 
     <li>
@@ -37,4 +55,6 @@
     </li>
 
   <% end %>
-</ul>
+</ul> -->
+
+</div>
