@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EventsController, type: :controller do
- 
+RSpec.describe EventsController, type: :controller do    
   describe "GET index" do
     it "assigns @events" do
       # création d'une instance
@@ -26,7 +25,6 @@ RSpec.describe EventsController, type: :controller do
   describe "GET show" do
     it "assigns @event" do
       # création d'une instance
-      
       event = FactoryBot.create(:event)
       
       # on va sur show
@@ -66,7 +64,7 @@ RSpec.describe EventsController, type: :controller do
       # on va sur edit
       get :edit, params: {id: event.id}
   
-      # @user doit être user
+      # @event doit être event
       expect(assigns(:event)).to eq(event)
     end
   
@@ -83,132 +81,131 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe "POST create" do
+    let(:event_invalide_params) { FactoryBot.attributes_for(:event) }
+    let(:create_event) { FactoryBot.attributes_for(:event).merge(:startup_id => FactoryBot.create(:startup).id) }
     context "with valid attributes" do
-      it "creates a new user" do
-        expect { 
-          attribut_event = FactoryBot.attributes_for(:event)
-          event = FactoryBot.create(:event)
-          post :create, params: {  :event => attribut_event.merge(:startup => FactoryBot.create(:startup)) }
+
+      # test de creation d'une instance via la methode create du controller event
+      it "creates a new event" do
+        expect {
+          post :create, params: {:event => create_event}
       }.to change(Event,:count).by(1)
       end
       
-      # it "redirects to the new user" do
-      #   attribut_event = FactoryBot.attributes_for(:event)
-      #   event = FactoryBot.create(:event)
-      #   post :create, params: {  :event => attribut_event.merge(:startup => FactoryBot.create(:startup)) }
-      #   # post :create, event: FactoryBot.attributes_for(:event)
-  
-      #   # en général tu rediriges vers le show de ce que tu viens de créer
-      #   response.should redirect_to Event.last
-      #   response.should redirect_to '/scorecard'
-      # end
+      # test de redirection apres creation d'une instance via le controller event
+      it "redirects to the created event" do
+        post :create, params: {:event => create_event}
+       
+        # en général tu rediriges vers le show de ce que tu viens de créer
+        expect(response).to redirect_to(Event.last)
+      end
     end
     
-    # context "with invalid attributes" do
-    #   it "doest not create a new user" do
-    #     expect { 
-    #       # post :create, event: Factory.attributes_for(invalide)
-    #       post :create, params: { "event" => { invalide } }
-    #     }.to_not change(Event, :count)
-    #   end
+    #test d'invalide creation ne doit pas s'instancier
+    context "with invalid attributes" do
+      it "doest not create a new user" do
+        expect { 
+          post :create, params: {:event => event_invalide_params}
+        }.to_not change(Event, :count)
+      end
       
-    #   it "re-renders the new method" do
-    #     # post :create, event: Factory.attributes_for(invalide)
-    #     post :create, params: { "event" => { invalide } }
-
-    #     response.should render_template :new
-    #   end
-    # end
+      # test de redirection quand event n'est pas instancier
+      it "re-renders the new method" do
+        post :create, params: {:event => event_invalide_params}
+        expect(response).to render_template(:new)
+      end
+    end
   end
 
-  # describe "PUT update" do
-  #   before :each do
-  #     @event = FactoryBot.create(:event)
-  #   end
-  
-  
-  #   context "with valid attributes" do
-  #     it "located the requested @user" do
-  #       title = Faker::Lorem.word
-  #       description = Faker::Lorem.sentence
-  #       adress = Faker::Address.country 
-  #       put :update, id: @event, params: { "event" => { 
-  #         title: title,
-  #          description: description,
-  #          adress: adress} }
-  #       assigns(:event).should eq(@event)      
-  #     end
+  describe "PUT update" do
     
-  #     it "changes @user's attributes" do
-  #       title = Faker::Lorem.word
-  #       description = Faker::Lorem.sentence
-  #       adress = Faker::Address.country 
-  #       put :update, id: @event, params: { "event" => {
-  #          title: title,
-  #          description: description,
-  #          adress: adress
-  #          }}
-  #       @event.reload
-  #       @event.title.should eq("event")
-  #       @event.description.should eq("event descrription")
-  #       @event.adress.should  eq("adress")
-  #     end
+    before :each do
+      @event =  FactoryBot.create(:event)
+    end
     
-  #     it "redirects to the updated contact" do
-  #       title = Faker::Lorem.word
-  #       description = Faker::Lorem.sentence
-  #       adress = Faker::Address.country 
-  #       put :update, id: @event, params: { "event" => { 
-  #         title: title,
-  #         description: description,
-  #         adress: adress} }
-  
-  #       # redirige où tu veux
-  #       response.should redirect_to @event
-  #     end
-  #   end
-    
-    # context "with invalid attributes" do
-    #   it "locates the requested @event" do
-    #     put :update, id: @event, params: { "event" => {  } }
-    #     assigns(:event).should eq(@event)      
-    #   end
+    context "with valid attributes" do
+      let(:valid_params_event)  { FactoryBot.attributes_for(:event,
+      title: "title update",
+      duration: 20,
+      description: "description update",
+      short_location: "short location update",
+      adress: "adress update",
+      zip_code: "zip code update",
+      city: "city update")}
+      it "located the requested @user" do        
+        # put :update, params: {id: @event, event: FactoryBot.attributes_for(:event, title: "title update" )}
+        put :update, params:{ id: @event, event: valid_params_event}
+        @event.reload
+        expect(assigns(:event)).to eq(@event)      
+      end
       
-    #   it "does not change @event's attributes" do
-    #     put :update, id: @event, params: { "event" => {  } }
-    #     @event.reload
-    #     @event.title.should_not  eq("event")
-    #     @event.duration.should_not  eq(30)
-    #     @event.description.should_not eq("event descrription")
-    #     @event.short_location.should_not eq("short location")
-    #     @event.adress.should_not eq("adress")
-    #     @event.zip_code.should_not eq("75000")
-    #     @event.city.should_not eq("paris")
-        
-    #   end
+      it "changes @event's attributes" do
+        put :update, params:{ id: @event, event: valid_params_event}
+        @event.reload
+        expect(@event.title).to eq("title update")
+        expect(@event.description).to eq("description update")
+        expect(@event.adress).to  eq("adress update")
+      end
       
-    #   it "re-renders the edit method" do
-    #     put :update, id: @event, params: { "event" => {  } }
-    #     response.should render_template :edit
-    #   end
-    # end
-  # end
+      it "redirects to the updated contact" do
+        put :update, params:{ id: @event, event: valid_params_event}
 
-  # describe 'DELETE destroy' do
-  #   before :each do
-  #     @user = User.create
-  #   end
+        # redirige où tu veux
+        expect(response).to redirect_to @event
+      end
+    end
     
-  #   it "deletes the user" do
-  #     expect{
-  #       delete :destroy, id: @user        
-  #     }.to change(User, :count).by(-1)
-  #   end
+    
+    context "with invalid attributes" do
+      let(:invalid_params_event)  { FactoryBot.attributes_for(:event,
+      title: "invalid title update",
+      duration: "trente",
+      description: "invalid description update",
+      short_location: "invalid short location",
+      adress: "invalid adress update",
+      zip_code: "",
+      city: "")} 
+
+      it "locates the requested @event" do
+        put :update, params: {id: @event, event: invalid_params_event}
+        expect(assigns(:event)).to eq(@event)      
+      end
       
-  #   it "redirects to users#index" do
-  #     delete :destroy, id: @user
-  #     response.should redirect_to contacts_url
-  #   end
-  # end
+      it "does not change @event's attributes" do
+        put :update, params: {id: @event, event: invalid_params_event}
+        @event.reload
+        expect(@event.title).to eq("event")
+        @event.duration.should_not  eq(30)
+        expect(@event.description).to eq("event description")
+        @event.short_location.should_not eq("short location")
+        expect(@event.adress).to eq("adress")
+        @event.zip_code.should_not eq("75000")
+        @event.city.should_not eq("paris")
+        
+      end
+      
+      it "re-renders the edit method" do
+        put :update, params: {id: @event, event: invalid_params_event}
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  describe 'DELETE destroy' do
+    before :each do
+      @event = FactoryBot.create(:event)
+    end
+    
+    it "deletes the user" do
+      expect{
+        delete :destroy, params: {id: @event}        
+      }.to change(Event, :count).by(-1)
+    end
+      
+    it "redirects to users#index" do
+      delete :destroy, params: {id: @event} 
+      expect(response).to redirect_to events_url
+    end
+  end
 
 end
