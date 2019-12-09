@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: 'static#home'
 
   devise_for :users
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    resources :avatars, only: [:create]
+  end
 
   resources :newsletters
   resources :activities
