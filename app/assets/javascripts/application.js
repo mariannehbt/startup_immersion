@@ -13,4 +13,16 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+
+//= require bootstrap
+
+//= require jquery-ui
+//= require modernizr-2.8.3.min
+
+//= require ajaxchimp
+//= require contact-form
+//= require magnific-popup.min
+//= require main
+//= require owl.carousel.min
+//= require scrollUp.min
+//= require wow.min

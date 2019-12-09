@@ -132,7 +132,7 @@ puts '*' * 60
 		user: User.all.sample,
 		event: Event.all.sample,
 		motivation: Faker::Lorem.sentence(word_count: rand(10..20)),
-		comment: Faker::Lorem.sentence(word_count: rand(1..5)),
+		comment: Faker::Lorem.sentence(word_count: rand(5..10)),
 		)
 end
 

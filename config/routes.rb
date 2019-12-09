@@ -14,6 +14,6 @@ Rails.application.routes.draw do
 
   get 'static_pages/home'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 end
