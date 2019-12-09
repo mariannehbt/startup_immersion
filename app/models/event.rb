@@ -5,7 +5,7 @@ class Event < ApplicationRecord
 
   validates :title,
     presence: true,
-    length: {in: 1..140, message: ' must be between 1 and 140 characters long'}
+    length: { in: 1..140, message: ' must be between 1 and 140 characters long'}
 
   validates :start_datetime,
     presence: true
@@ -33,7 +33,7 @@ class Event < ApplicationRecord
 
     validates :city,
     presence: true,
-    length: {in: 1..140, message: ' must be between 5 and 140 characters long'}
+    length: {in: 5..140, message: ' must be between 5 and 140 characters long'}
 
   def end_date
   	return start_datetime + (duration * 60)
