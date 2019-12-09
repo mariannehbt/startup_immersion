@@ -2,8 +2,6 @@ require 'rails_helper'
 RSpec.describe Startup, type: :model do
     # let(:group) { FactoryGirl.create :group }
     before(:each) do 
-
-        # @event = FactoryBot.build(:event)
         @event = FactoryBot.build(:event, startup: @startup)
         @startup = FactoryBot.build(:startup)
 

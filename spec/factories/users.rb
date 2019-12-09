@@ -15,6 +15,7 @@ FactoryBot.define do
         event = create(:event)
         user.attendances << build(:attendance, user: user, event: event)
       end
+     
     end
   
 end

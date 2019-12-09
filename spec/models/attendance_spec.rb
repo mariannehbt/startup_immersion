@@ -3,7 +3,7 @@ RSpec.describe Attendance, type: :model do
     # let(:group) { FactoryGirl.create :group }
     before(:each) do 
 
-        @attendance = FactoryBot.build(:attendance)
+        @attendance = FactoryBot.create(:attendance)
     end
 
     it "Has a valid factory" do 

@@ -2,19 +2,13 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do
     # let(:group) { FactoryGirl.create :group }
     before(:each) do 
-
-        # @event = FactoryBot.build(:event)
-        @event = FactoryBot.build(:event, startup: @startup)
         @startup = FactoryBot.build(:startup)
-
-       
-        # byebug
+        @event = FactoryBot.build(:event, startup: @startup)
     end
 
     it "Has a valid factory" do 
         # test les creations
         expect(build(:event)).to be_valid
-        expect(build(:startup)).to be_valid
     end
 
     context "validation" do

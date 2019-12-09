@@ -3,16 +3,12 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
     # let(:group) { FactoryGirl.create :group }
     before(:each) do 
-
         @user = FactoryBot.build(:user)
-        @event = FactoryBot.build(:event)
-
     end
 
     it "Has a valid factory" do 
         # test les creations
         expect(build(:user)).to be_valid
-        expect(build(:event)).to be_valid
     end
 
     context "validation" do
@@ -20,10 +16,6 @@ RSpec.describe User, type: :model do
         it "is valid with attributes" do
 
             expect(@user).to be_a(User)
-            expect(@event).to be_a(Event)
-            # expect(@user).to be_a(User)
-            
-            # 
         end
 
         it "should return a string" do
