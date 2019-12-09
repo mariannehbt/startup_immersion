@@ -25,6 +25,7 @@
         <td><%= attendance.created_at %></td>
         <td><%= attendance.updated_at %></td>
         <td><%= link_to 'Show Event', [@event] %></td>
+        <td><%= link_to 'Show Attendance', event_attendance_path(@event, attendance) %></td>
         <td><%= link_to 'Edit Attendance', edit_event_attendance_path(@event, attendance) %></td>
         <td><%= link_to 'Destroy Attendance', [@event, attendance], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

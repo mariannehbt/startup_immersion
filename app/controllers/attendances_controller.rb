@@ -1,6 +1,11 @@
 class AttendancesController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_event
   before_action :set_attendance, only: [:show, :edit, :update, :destroy]
+  before_action :has_applied?, only: [:new, :create]
+  before_action :is_right_user?, only: [:show, :edit, :update, :destroy]
+
+
 
   # GET /attendances
   # GET /attendances.json
@@ -69,6 +74,21 @@ class AttendancesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_attendance
       @attendance = @event.attendances.find(params[:id])
+    end
+
+    def has_applied?
+      if @event.users.include?(current_user)
+        flash[:danger] = 'You have already applied'
+        redirect_to user_path(current_user)
+      end
+    end
+
+    def is_right_user?
+      @user = @attendance.user
+      unless @user.id == current_user.id
+        flash[:danger] = 'This is not your attendance'
+        redirect_to user_path(current_user)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

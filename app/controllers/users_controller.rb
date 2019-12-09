@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     def is_right_user?
       @user = User.find(params[:id])
       unless @user.id == current_user.id
-        flash[:danger] = "This is not your account"
+        flash[:danger] = 'This is not your account'
         redirect_to user_path(current_user)
       end
     end

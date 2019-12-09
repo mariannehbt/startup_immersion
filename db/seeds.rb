@@ -127,13 +127,15 @@ puts '*' * 60
 puts 'Creating Attendances'
 puts '*' * 60
 
+i = 1
 10.times do
 	Attendance.create!(
-		user: User.all.sample,
+		user: User.find(i),
 		event: Event.all.sample,
 		motivation: Faker::Lorem.sentence(word_count: rand(10..20)),
 		comment: Faker::Lorem.sentence(word_count: rand(5..10)),
 		)
+	i = i + 1
 end
 
 puts ''
