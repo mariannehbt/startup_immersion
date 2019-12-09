@@ -63,6 +63,13 @@
     </tr>
   </thead>
 
+  <h2>Attendances</h2>
+  <% for attendance in @event.attendances %>
+  <ul>
+    <li><%= attendance.motivation %></li>
+  </ul>
+  <% end %>
+
   <tbody>
     <% @event.users.each do |event_attendances| %>
       <tr>
@@ -75,4 +82,5 @@
 </table>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Add Attendance', event_attendances_path(@event) %> |
 <%= link_to 'Back', events_path %>

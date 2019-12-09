@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   resources :activities
   resources :situations
   resources :startups
-  resources :events
-  resources :attendances
+
+  resources :events do
+    resources :attendances
+  end
 
   get 'static/home'
 

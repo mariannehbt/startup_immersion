@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
   before_action :authenticate_user!, only: [:index, :show, :edit, :update]
   before_action :is_right_user?, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
 
   # GET /users
   # GET /users.json
