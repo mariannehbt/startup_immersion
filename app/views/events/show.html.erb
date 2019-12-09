@@ -48,6 +48,7 @@
 <p>
   <strong>Startup:</strong>
   <%= @event.startup.name %>
+  <%= link_to 'Startup', startup_path(@event.startup.id) %>
 </p>
 
 <h2>Registration for this event :</h2>
