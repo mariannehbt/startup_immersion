@@ -190,6 +190,11 @@ input:-webkit-autofill:focus {
   box-shadow: 0 0 0 0.2rem rgba(156, 98, 216, 0.5);
 }
 
+.bg-primary {
+  background-color: #5d23ba !important;
+}
+
+
 /*-- 3. Button-Style --*/
 
 .bttn-white {
