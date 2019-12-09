@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 # Marianne :
+gem "aws-sdk-s3", require: false
 gem 'devise'
 gem 'dotenv-rails'
 gem 'rails_admin', '~> 2.0'
