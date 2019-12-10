@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   get 'static/home'
-
+  # get '/search' => 'events#search', :as => 'search_page'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 end
