@@ -32,6 +32,25 @@ CSS INDEX
 22. Comment-Respond
 23. Form-Stype
 -----------------------------------------------------------------------------------*/
+/*-----------------
+0.css perso
+------------------*/
+.center{
+
+
+align-items: center;
+justify-content: center;
+text-align: center;
+margin: auto;
+width:80%;
+
+}
+
+
+
+
+
+
 
 /*-----------------
 1. Google font
