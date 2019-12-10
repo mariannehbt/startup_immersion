@@ -82,7 +82,6 @@ input:-webkit-autofill:focus {
 
 .jumbotron
 {
-  height: 600px;
   max-width: 100%;
   background-image: url('city.jpg');
   background-position: center;
@@ -90,6 +89,7 @@ input:-webkit-autofill:focus {
   background-size: cover;
     height: 100vh;
     border-radius: 0px;
+    padding-top: 100px;
 }
 
 .navbar {
@@ -115,8 +115,6 @@ input:-webkit-autofill:focus {
   padding-top: 1em;
   margin-top: 3em;
 }
-
-
 
 .btn-primary {
   background-color: #5d23ba;
@@ -156,6 +154,14 @@ input:-webkit-autofill:focus {
   background-color: #5d23ba !important;
 }
 
+
+.btn-secondary {
+  background-color: #be88d1;
+  border-color: #be88d1;
+}
+
+
+be88d1
 
 /*-- 3. Button-Style --*/
 
