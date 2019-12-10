@@ -36,7 +36,7 @@ class Event < ApplicationRecord
   length: {in: 1..140, message: ' must be between 5 and 140 characters long'}
   
   def self.search(params)
-    events = Event.where("title LIKE ? or description LIKE ?", "%#{params[:search]}%","%#{params[:search]}%") if params[:search].present?
+    events = Event.where("title LIKE ? or description LIKE ? short_location LIKE ?", "%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%") if params[:search].present?
     events
   end
   
