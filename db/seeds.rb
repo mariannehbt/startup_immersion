@@ -61,8 +61,8 @@ end
 	User.create!(
 		email: 'alison.marceline@yopmail.com',
 		password: 'coucou',
+		admin: true,
 		)
-
 
 puts ''
 puts '*' * 60
