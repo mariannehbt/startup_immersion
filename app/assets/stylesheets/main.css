@@ -1,3 +1,141 @@
+/* Ajout dans style.css */
+
+.center{
+
+
+align-items: center;
+justify-content: center;
+text-align: center;
+margin: auto;
+width:80%;
+
+}
+
+.jumbotron
+{
+  max-width: 100%;
+  background-image: url('city.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    height: 100vh;
+    border-radius: 0px;
+    padding-top: 100px;
+}
+
+.navbar {
+    margin-bottom: 0px;
+position: top;
+}
+
+.dropdown-menu {
+  right: 0 !important;
+  left: auto;
+}
+
+.btn {
+  border-radius: 50px;
+}
+
+.footer {
+  position: bottom;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  text-align: center;
+  padding-top: 1em;
+  margin-top: 3em;
+}
+
+.btn-primary {
+  background-color: #5d23ba;
+  border-color: #5d23ba;
+}
+
+.btn-primary:hover {
+  background-color: #8053c9;
+  border-color: #8053c9;
+}
+
+
+.btn-primary:focus, .btn-primary.focus {
+  color: #fff;
+  background-color: #8053c9;
+  border-color: #5f00cc;
+  box-shadow: 0 0 0 0.2rem rgba(156, 98, 216, 0.5);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #8500ff;
+  border-color: #8500ff;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #6a00cc;
+  border-color: #5e00bf;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(156, 98, 216, 0.5);
+}
+
+.bg-primary {
+  background-color: #5d23ba !important;
+}
+
+
+.btn-secondary {
+  background-color: #be88d1;
+  border-color: #be88d1;
+}
+
+
+.btn-light {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+
+#container1 {
+background-color: #ded1f3;
+max-width: 100%;
+padding-bottom: 2em;
+padding-top: 1.5em;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.nav-link:hover, .nav-link:focus {
+  text-decoration: underline;
+}
+
+.justify-content-center .dropdown-menu {
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+#navbarSupportedContent {
+text-align: center;
+}
+
+
+#dropdownMenuButton {
+align-items: center;
+}
+
+/*-----------------
+1. Google font
+------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800');
 
@@ -46,6 +184,8 @@ h6 {
 h1 {
     font-size: 60px;
     padding-bottom: 1em;
+    font-weight: bold;
+
 }
 
 h2 {
@@ -76,84 +216,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-}
-
-/* Ajout dans style.css */
-
-.jumbotron
-{
-  height: 600px;
-  max-width: 100%;
-  background-image: url('city.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-    height: 100vh;
-    border-radius: 0px;
-}
-
-.navbar {
-    margin-bottom: 0px;
-}
-
-.dropdown-menu {
-  right: 0 !important;
-  left: auto;
-}
-
-.btn {
-  border-radius: 50px;
-}
-
-.footer {
-  position: bottom;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #f8f9fa;
-  text-align: center;
-  padding-top: 1em;
-  margin-top: 3em;
-}
-
-
-
-.btn-primary {
-  background-color: #5d23ba;
-  border-color: #5d23ba;
-}
-
-.btn-primary:hover {
-  background-color: #8053c9;
-  border-color: #8053c9;
-}
-
-
-.btn-primary:focus, .btn-primary.focus {
-  color: #fff;
-  background-color: #8053c9;
-  border-color: #5f00cc;
-  box-shadow: 0 0 0 0.2rem rgba(156, 98, 216, 0.5);
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-  background-color: #8500ff;
-  border-color: #8500ff;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle {
-  background-color: #6a00cc;
-  border-color: #5e00bf;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
-.show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(156, 98, 216, 0.5);
-}
-
-.bg-primary {
-  background-color: #5d23ba !important;
 }
 
 
