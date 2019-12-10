@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<div class="container center-div">
+
+<h1 class="my-5 text-center">- Les immersions -</h1>
+
+<%= render 'card_event' %>
+
 
 <table>
   <thead>
@@ -39,3 +44,4 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
+</div>
