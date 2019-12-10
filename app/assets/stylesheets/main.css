@@ -103,8 +103,10 @@ position: top;
 
 
 #container1 {
-background-color: red;
-width: 100%;
+background-color: #ded1f3;
+max-width: 100%;
+padding-bottom: 2em;
+padding-top: 1.5em;
 }
 
 .card-img-top {
