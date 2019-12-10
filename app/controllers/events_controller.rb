@@ -61,17 +61,17 @@ class EventsController < ApplicationController
     end
   end
 
-#   def search  
-#     if params[:search].blank?  
-#     redirect_to(root_path, alert: "Empty field!") and return  
-#     else  
-#     @parameter = params[:search].downcase 
-#     @results = Event.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
-#     # @results = Event.all.where("lower(title) LIKE :search", search: @parameter)  
-#     # @results = Car.joins(:event).search(params[:search]).order("event.title DESC")
-#      end
+  def search  
+    if params[:search].blank?  
+    redirect_to(root_path, alert: "Empty field!") and return  
+    else  
+    @parameter = params[:search].downcase 
+    @results = Event.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+    # @results = Event.all.where("lower(title) LIKE :search", search: @parameter)  
+    # @results = Car.joins(:event).search(params[:search]).order("event.title DESC")
+     end
          
-# end
+end
   
   private
     # Use callbacks to share common setup or constraints between actions.

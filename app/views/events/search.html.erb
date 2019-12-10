@@ -1,0 +1,7 @@
+<h3>Search Result</h3>  
+
+ <%= render 'events/card_search_event' %>
+    <% @results.each do |result| %>  
+        <%= result.title %> 
+        <%= result.description %><br> 
+    <% end %>
