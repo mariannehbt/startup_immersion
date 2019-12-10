@@ -10,6 +10,7 @@ class AttendancesController < ApplicationController
   # GET /attendances/1
   # GET /attendances/1.json
   def show
+    @attendance = Attendance.find(params[:id])
   end
 
   # GET /attendances/new
@@ -19,13 +20,14 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/1/edit
   def edit
+    @attendance = Attendance.find(params[:id])
   end
 
   # POST /attendances
   # POST /attendances.json
   def create
     @attendance = Attendance.new(attendance_params)
-
+byebug
     respond_to do |format|
       if @attendance.save
         format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
@@ -40,6 +42,7 @@ class AttendancesController < ApplicationController
   # PATCH/PUT /attendances/1
   # PATCH/PUT /attendances/1.json
   def update
+    @attendance = Attendance.find(params[:id])
     respond_to do |format|
       if @attendance.update(attendance_params)
         format.html { redirect_to @attendance, notice: 'Attendance was successfully updated.' }
@@ -54,6 +57,7 @@ class AttendancesController < ApplicationController
   # DELETE /attendances/1
   # DELETE /attendances/1.json
   def destroy
+    @attendance = Attendance.find(params[:id])
     @attendance.destroy
     respond_to do |format|
       format.html { redirect_to attendances_url, notice: 'Attendance was successfully destroyed.' }
@@ -69,6 +73,6 @@ class AttendancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendance_params
-      params.require(:attendance).permit(:motivation, :comment)
+      params.require(:attendance).permit(:motivation, :comment, :user_id, :event_id)
     end
 end
