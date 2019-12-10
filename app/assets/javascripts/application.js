@@ -14,4 +14,4 @@
 //= require activestorage
 //= require turbolinks
 //= require bootstrap.bundle
-//= require jquery
+//= require bootstrap.min.js

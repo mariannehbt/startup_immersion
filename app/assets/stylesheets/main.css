@@ -1,12 +1,3 @@
-/*-----------------------------------------------------------------------------------
-Template Name: Appy HTML5 Template,
-Template URI: http://www.themectg.com
-Description: This is html5 template
-Author: Ashekur Rahman Hridoy
-Author URI: http://www.facebook.com/ashekur.rahman.hridoy
-Version: 1.0
------------------------------------------------------------------------------------
-CSS INDEX
 ===================
 1. Google font
 2. Theme Default CSS
@@ -55,6 +46,7 @@ width:80%;
 /*-----------------
 1. Google font
 ------------------*/
+=======
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800');
 
@@ -139,7 +131,6 @@ input:-webkit-autofill:focus {
 
 .jumbotron
 {
-  height: 600px;
   max-width: 100%;
   background-image: url('city.jpg');
   background-position: center;
@@ -147,6 +138,7 @@ input:-webkit-autofill:focus {
   background-size: cover;
     height: 100vh;
     border-radius: 0px;
+    padding-top: 100px;
 }
 
 .navbar {
@@ -172,8 +164,6 @@ input:-webkit-autofill:focus {
   padding-top: 1em;
   margin-top: 3em;
 }
-
-
 
 .btn-primary {
   background-color: #5d23ba;
@@ -213,6 +203,14 @@ input:-webkit-autofill:focus {
   background-color: #5d23ba !important;
 }
 
+
+.btn-secondary {
+  background-color: #be88d1;
+  border-color: #be88d1;
+}
+
+
+be88d1
 
 /*-- 3. Button-Style --*/
 

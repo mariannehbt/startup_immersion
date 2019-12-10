@@ -1,16 +1,15 @@
   <div class="jumbotron">
     <center>
-  <h1 class="text-white mb-0 pb-0">- Startup Immersion -</h1>
-  <h3 class="text-white mt-1">Accède à l'inaccessible !</h2>
-  <p class="lead text-white pt-5 mb-2 pb-2"><strong>Bienvenue sur Start-Up Immersion, le service qui te met en relation avec les start-up qui t'intéressent ! </strong></p>
-
-  <h3 class="display-5 text-white mt-0 pt-O">Connecte-toi et découvre toutes les immersions !
+  <h1 class="text-white mb-2 pb-2">Accède à l'inaccessible !</h1>
+  <h3 class="text-white mt-1">Bienvenue sur <b>Startup Immersion</b>, </br>le service qui te met en relation avec les start-up qui t'intéressent !</h3>
+</br>
+</br>
+  <h3 class="display-5 text-white mt-0 pt-O"><b><%= link_to "Connecte-toi", new_user_registration_path, class: "p text-white" %></b> et découvre toutes les immersions !
   </h3>
 </br>
   <p class="lead">
     
-    <a class="btn btn-secondary btn-lg" role="button" <%= link_to "Découvrir les immersions", events_path %></a> 
-     <a class="btn btn-primary btn-lg" role="button" <%= link_to "Se connecter", new_user_registration_path %></a>
+    <a class="btn btn-info btn-lg" role="button" <%= link_to "DECOUVRIR LES IMMERSIONS", events_path %></a> 
   </p>
      </center>
 
