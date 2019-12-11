@@ -15,10 +15,14 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :attendances
+    collection do
+      get :search
+    end
   end
+  
 
   get 'static/home'
-
+  # get '/search' => 'events#search', :as => 'search_page'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 end

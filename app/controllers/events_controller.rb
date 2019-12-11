@@ -61,6 +61,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def search 
+    if params[:search].blank? 
+      @events = Event.all
+    else
+      @events = Event.search(params)
+    end
+  end         
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
