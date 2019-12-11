@@ -120,8 +120,9 @@
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="30" height="30" class="rounded-circle">
+                  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              DECONNEXION
+            </button>
                 </a>
                 <div class="dropdown-menu pr-3" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="<%= user_path(current_user.id) %>">MON PROFIL</a>
