@@ -1,100 +1,3 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-   <a class="navbar-brand" href="/">
-    <img src=<%= asset_path 'favicon.png' %> width="80" height="80" alt="">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link"><%= link_to "LES IMMERSIONS", events_path %><span class="sr-only">(current)</a>
-      </li>
-          &nbsp; &nbsp; &nbsp;<li class="nav-item active">
-        <a class="nav-link"><%= link_to "CONTACT", events_path %></a>
-      </li>
-      &nbsp; &nbsp; &nbsp; <li class="nav-item">
-      <input class="form-control mr-sm-2" type="text" placeholder="Chercher sur le site...">
-    </li>
-    <li>
-     &nbsp; <button class="btn btn-outline-secondary btn-md mt-2" type="submit">SEARCH</button>
-    </li>
-    </ul>
-
-<div class="btn-group">
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Connexion
-  </button>
-
-  <% if user_signed_in? %>
-
-   <div class="dropdown-menu">
-    <a class="dropdown-item" <%= link_to "Modifier le profil", edit_user_registration_path %></a>
-    <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
-  </div>
-
-  <% else %>
-
-  <div class="dropdown-menu">
-    <a class="dropdown-item" <%= link_to "Se connecter", new_user_session_path %></a>
-    <a class="dropdown-item" <%= link_to "S'inscrire", new_user_registration_path %></a>
-  </div>
-
-<% end %>
-
-  </div>
-</nav>
- -->
-
-
-
-<!--   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">  <img src=<%= asset_path 'logo_transparent2.png' %> width="120" height="120" alt=""></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link"><%= link_to "LES IMMERSIONS", events_path %><span class="sr-only">(current)</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><%= link_to "CONTACT", events_path %></a>
-        </li>
-              </ul>
-
-               <% if user_signed_in? %>
-        <div class="btn-group">
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    PROFIL
-  </button>
-
-
-   <div class="dropdown-menu">
-    <a class="dropdown-item" <%= link_to "Modifier le profil", edit_user_registration_path %></a>
-    <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
-  </div>
-
-  <% else %>
-
-          <div class="btn-group">
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    CONNEXION
-  </button>
-
-  <div class="dropdown-menu">
-    <a class="dropdown-item" <%= link_to "Se connecter", new_user_session_path %></a>
-    <a class="dropdown-item" <%= link_to "S'inscrire", new_user_registration_path %></a>
-  </div>
-
-<% end %>
-
-
-
-    </div>
-  </nav> -->
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
      <a class="navbar-brand" href="/">
     <img src=<%= asset_path 'logo_transparent2.png' %> width="120" height="120" alt="">
@@ -112,7 +15,7 @@
              <li class="nav-item active">
             <%= link_to "CONTACT", events_path, class: "nav-link" %>
           </li>
-
+         <!--  <li class="nav-item"><%= render 'layouts/search_bar' %></li> -->
         </ul>
       </div>
 
@@ -121,12 +24,12 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
                   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              DECONNEXION
+              DÉCONNEXION
             </button>
                 </a>
                 <div class="dropdown-menu pr-3" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="<%= user_path(current_user.id) %>">MON PROFIL</a>
-                  <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-method="delete" >DECONNEXION</a>
+                  <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-method="delete" >DÉCONNEXION</a>
                 </div>
               </li>
             </ul>
@@ -139,7 +42,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="<%= new_user_session_path %>">SE CONNECTER</a>
-              <a class="dropdown-item" href="<%= new_user_registration_path %>">CREER UN COMPTE</a>
+              <a class="dropdown-item" href="<%= new_user_registration_path %>">CRÉER UN COMPTE</a>
             </div>
           </div>
 
