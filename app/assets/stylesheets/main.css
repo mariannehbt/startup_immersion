@@ -41,9 +41,19 @@ column-width: 100%;
 
 
 
+
+
 /************************/
 /* Ajout dans style.css */
 /************************/
+.card-show{
+  display: inline-block !important;
+}
+
+.none{
+  list-style-type: none;
+}
+
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
