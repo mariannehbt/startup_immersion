@@ -99,7 +99,7 @@ width:80%;
   background-size: cover;
     height: 100vh;
     border-radius: 0px;
-    padding-top: 100px;
+    padding-top: 8em;
 }
 
 .navbar {
@@ -190,7 +190,7 @@ padding-top: 1.5em;
 
 .card-img-top {
     width: 100%;
-    height: 15vw;
+    height: 20vw;
     object-fit: cover;
 }
 
@@ -204,7 +204,7 @@ padding-top: 1.5em;
 }
 
 #navbarSupportedContent {
-text-align: center;
+  text-align: center;
 }
 
 
@@ -212,6 +212,12 @@ text-align: center;
 align-items: center;
 }
 
+/*.dropdown-menu {
+  left: 50%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}*/
 /*-----------------
 1. Google font
 ------------------*/
@@ -261,7 +267,7 @@ h6 {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 3em;
     padding-bottom: 1em;
     font-weight: bold;
 
