@@ -1,8 +1,12 @@
 class Event < ApplicationRecord
+  
   belongs_to :startup
   has_many :attendances
   has_many :users, through: :attendances
-
+  
+  geocoded_by :short_location
+  after_validation :geocode
+  
   validates :title,
   presence: true,
   length: {in: 1..140, message: ' must be between 1 and 140 characters long'}
