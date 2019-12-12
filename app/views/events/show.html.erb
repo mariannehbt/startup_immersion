@@ -60,9 +60,6 @@
           </p><br/>
 
 
-          <h3>Registration for this event :</h3>
-          <p><%= @event.attendances.count %> registrations</p><br />
-
             <h3>Attendances</h3>
             <% for attendance in @event.attendances %>
             <p class="lead">
@@ -70,9 +67,14 @@
             </p>
             <% end %>
 
-            <br />
+
+
+
+
               <ul class="list-group list-group-flush">
-                <strong>registered</strong>
+                <strong><h3>Registration for this event :</h3>
+                <p><%= @event.attendances.count %> registrations</p></strong>
+
                 <% @event.users.each do |event_attendances| %>
 
                     <li class="list-group-item">

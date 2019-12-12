@@ -2,7 +2,7 @@
 /************************/
 /* @media              */
 /************************/
-#map{
+/* #map{
   display: inline-block;
 }
 
@@ -19,7 +19,7 @@
 
     width: 20em; height: 20em;
   }
-}
+} */
 
 
 
@@ -110,6 +110,7 @@ column-width: 100%;
 /************************/
 .list-group-item{
   background-color: transparent ;
+  overflow: hidden;
 }
 
 .none{
