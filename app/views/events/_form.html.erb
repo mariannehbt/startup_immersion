@@ -56,6 +56,9 @@
     <%= form.select :startup_id, options_from_collection_for_select(Startup.all, :id, :name, @event.startup_id), { :prompt => 'Choose from list :'} %>
   </div> <br />
 
+  <%= form.hidden_field :event, :value => params[:latitude] %>
+  <%= form.hidden_field :event, :value => params[:longitude] %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>Startup Immersion</title>
       <link rel="icon" href=<%=asset_path 'favicon.png' %> type="image/icon type">
       <%= csrf_meta_tags %>
@@ -15,10 +15,12 @@
   </head>
 
   <body>
+     <%= render 'layouts/messages' %>
     <%= render 'layouts/navbar' %>
-    <!--     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    -->    
+   
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
