@@ -63,17 +63,23 @@
           </p>
           <% end %>
 
+          <br />
+            <ul class="list-group list-group-flush">
+              <strong>registered</strong>
+              <% @event.users.each do |event_attendances| %>
 
-            <% @event.users.each do |event_attendances| %>
+                  <li class="list-group-item">
+                    <%= event_attendances.first_name %>
+                    <%= event_attendances.email %> &nbsp;
+                    <%= link_to "Details &raquo;".html_safe, user_path(event_attendances), :class =>'btn btn-sm btn-primary' %>
+                  </li>
+              <% end %>
+            </ul>
 
-                <p>
-                  <%= event_attendances.first_name %>
-                  <%= event_attendances.email %> &nbsp;
-                  <%= link_to "Details &raquo;".html_safe, user_path(event_attendances), :class =>'btn btn-primary' %>
-                </p>
-            <% end %>
 
         </div>
+
+
   </div>
   <%= link_to 'Edit', edit_event_path(@event) %> |
   <%= link_to 'Add Attendance', event_attendances_path(@event) %> |

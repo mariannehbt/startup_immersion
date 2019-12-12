@@ -91,7 +91,9 @@ column-width: 100%;
 /************************/
 /* Ajout dans style.css */
 /************************/
-
+.list-group-item{
+  background-color: transparent ;
+}
 
 .none{
   list-style-type: none;
