@@ -4,13 +4,21 @@ Rails.application.routes.draw do
   root to: 'static#home'
 
   devise_for :users
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update, :destroy] do
     resources :avatars, only: [:create]
   end
 
+  namespace :admin do
+    root 'admin#index'
+    resources :users
+  end
+
+  scope module: "admin" do
+    resources :activities
+    resources :situations
+  end
+
   resources :newsletters
-  resources :activities
-  resources :situations
   resources :startups
 
   resources :events do
@@ -19,6 +27,6 @@ Rails.application.routes.draw do
 
   get 'static/home'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 end

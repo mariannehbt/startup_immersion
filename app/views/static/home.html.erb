@@ -11,6 +11,7 @@
 
 <ul>
   <% if user_signed_in? %>
+
     <li>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
     </li>
@@ -20,14 +21,15 @@
     </li>
 
     <li>
-      <%= link_to "My Profile", user_path(current_user) %>
-    </li>
-
-    <li>
-      <%= link_to "Edit email / password", edit_user_registration_path %>
+      <% if current_user.admin? %>
+        <%= link_to "Admin Dashboard", admin_root_path %>
+      <% else %>
+        <%= link_to "My Profile", user_path(current_user) %>
+      <% end %>
     </li>
 
   <% else %>
+    
     <li>    
       <%= link_to "Sign in", new_user_session_path %>
     </li>
@@ -37,4 +39,5 @@
     </li>
 
   <% end %>
+
 </ul>

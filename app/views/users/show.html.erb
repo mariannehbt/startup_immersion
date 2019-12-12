@@ -106,4 +106,8 @@
 <% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if current_user.admin? %>
+  <%= link_to 'Back', admin_users_path %>
+<% else %>
+  <%= link_to 'Back', :root %>
+<% end %>
