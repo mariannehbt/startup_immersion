@@ -15,6 +15,12 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @events = Event.where(id: params[:id])
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.infowindow event.title
+    end
   end
 
   # GET /events/new
@@ -82,6 +88,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :start_datetime, :duration, :description, :short_location, :adress, :zip_code, :city, :startup_id)
+      params.require(:event).permit(:title, :start_datetime, :duration, :description, :short_location, :adress, :zip_code, :city, :startup_id, :latitude, :longitude)
     end
 end
