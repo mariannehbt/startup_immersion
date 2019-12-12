@@ -92,6 +92,10 @@ column-width: 100%;
 /* Ajout dans style.css */
 /************************/
 
+#search {
+
+    padding-top-top: 2em;
+}
 
 .none{
   list-style-type: none;

@@ -95,30 +95,19 @@
 
 </br>
 
-<!-- 
-<ul>
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    </li>
+<div class="container-fluid">
+<div id="container1">
 
-    <li>
-      Voici ton email : <%= current_user.email %>
-    </li>
+  <h1 class="text-center text-white">RECHERCHE</h1>
 
-    <li>
-      <%= link_to "Edit email / password", edit_user_registration_path %>
-    </li>
 
-  <% else %>
-    <li>    
-      <%= link_to "Sign in", new_user_session_path %>
-    </li>
 
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
-
-  <% end %>
-</ul> -->
-
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12">
+      <%= render 'layouts/search_bar' %>
+</div>
+</div>
+</div>
+</div>
+</div>
