@@ -1,7 +1,7 @@
 
   <!-- GOOGLE MAP -->
       <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=[YOUR_KEY_API]&callback=initMap"></script>
-      <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>  
+      <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
       <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
       <script src='//underscorejs.org/underscore-min.js' type='text/javascript'></script>
     <!-- GOOGLE MAP -->
@@ -55,10 +55,11 @@
 
 </div>
 <%= link_to 'New Event', new_event_path %>
+</div>
 
+<%= render 'google_map_event' %>
 
 <script src="app/assets/javascripts/gallery.js"></script>
 
-<%= render 'google_map_event' %>
-</body>
 
+</body>
