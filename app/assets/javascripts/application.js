@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require bootstrap.bundle
 //= require bootstrap.min.js
+//= require underscore
+//= require gmaps/google
