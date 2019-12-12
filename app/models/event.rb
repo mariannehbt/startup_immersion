@@ -4,8 +4,8 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
   
-  geocoded_by :short_location
-  after_validation :geocode
+  geocoded_by :adress
+  after_validation :geocode, if: :adress_changed?
   
   validates :title,
   presence: true,
