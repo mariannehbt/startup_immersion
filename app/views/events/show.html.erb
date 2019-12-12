@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Startup:</strong>
+  <%= @event.startup.name %>
+  <%= link_to 'Startup', startup_path(@event.startup.id) %>
+  <%= link_to @event.startup.name, startup_path(@event.startup.id) %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @event.title %>
 </p>
@@ -30,62 +37,52 @@
   <%= @event.short_location %>
 </p>
 
-<p>
-  <strong>Adress:</strong>
-  <%= @event.adress %>
-</p>
+<% if current_user && current_user.admin? %>
+  
+  <p>
+    <strong>Adress:</strong>
+    <%= @event.adress %>
+  </p>
 
-<p>
-  <strong>Zip code:</strong>
-  <%= @event.zip_code %>
-</p>
+  <p>
+    <strong>Zip code:</strong>
+    <%= @event.zip_code %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @event.city %>
-</p>
+  <p>
+    <strong>City:</strong>
+    <%= @event.city %>
+  </p>
 
-<p>
-  <strong>Startup:</strong>
-  <%= @event.startup.name %>
-  <%= link_to 'Startup', startup_path(@event.startup.id) %>
-</p>
+  <h2>Registration for this event :</h2>
+  <p><%= @event.attendances.count %> registrations</p>
+  <%= link_to "See all &raquo;".html_safe, admin_event_attendances_path(@event), :class =>'btn btn-primary' %>
 
-<h2>Registration for this event :</h2>
-<p><%= @event.attendances.count %> registrations</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Email</th>
-      <th>Details</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <h2>Attendances</h2>
-  <% for attendance in @event.attendances %>
-  <ul>
-    <li><%= attendance.motivation %></li>
-  </ul>
-  <% end %>
-
-  <tbody>
-    <% @event.users.each do |event_attendances| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= event_attendances.first_name %></td>
-        <td><%= event_attendances.email %></td>
-        <td><%= link_to "Details &raquo;".html_safe, user_path(event_attendances), :class =>'btn btn-primary' %></td>
+        <th>User</th>
+        <th>Attendance</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% for attendance in @event.attendances %>
+        <tr>
+          <td><%= link_to "#{attendance.user.email} &raquo;".html_safe, user_path(attendance.user), :class =>'btn btn-primary' %></td>
+          <td><%= link_to "Details &raquo;".html_safe, event_attendance_path(@event, attendance), :class =>'btn btn-primary' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <% if current_user && current_user.admin? %>
   <%= link_to 'Edit', edit_admin_event_path(@event) %> |
-  <%= link_to 'Add Attendance', event_attendances_path(@event) %> |
-  <%= link_to 'Back', events_path %>
+  <%= link_to 'Add Attendance', new_event_attendance_path(@event) %> |
+  <%= link_to 'Back', :back %>
 <% else %>
+  <%= link_to 'Add Attendance', new_event_attendance_path(@event) %> |
   <%= link_to 'Back', events_path %>
 <% end %>

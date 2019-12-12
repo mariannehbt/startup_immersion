@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :startups, only: [:index, :show, :create, :update, :destroy]
 
   resources :events, only: [:index, :show, :create, :update, :destroy] do
-    resources :attendances
+    resources :attendances, except: :index
   end
 
 
@@ -19,23 +19,17 @@ Rails.application.routes.draw do
     root 'admin#index'
     resources :users
     resources :startups
-    resources :events
+    resources :events do
+      resources :attendances
+    end
   end
 
-  scope module: "admin" do
+  scope module: 'admin' do
     resources :activities
     resources :situations
   end
 
-
-
-
-
-
   resources :newsletters
-  
-
-
 
   get 'static/home'
 

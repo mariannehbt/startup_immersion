@@ -12,7 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <% if current_user && current_user.admin? %>
+      <%= form.label :user %>
+      <%= form.select :user_id, options_from_collection_for_select(User.all.sort, :id, :email, @attendance.event_id), { :prompt => 'Choose from list :'} %>
+    <% else %>
+      <%= form.hidden_field :user_id, :value => current_user.id %>
+    <% end %>
   </div>
 
   <div class="field">
