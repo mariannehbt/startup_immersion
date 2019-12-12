@@ -1,41 +1,15 @@
 
-/************************/
-/* @media              */
-/************************/
-#map{
-  display: inline-block;
-}
-
-@media (min-width: 300px) and (max-width: 640px){
-  #map{
-
-    width: 20em;
-    height: 30em;
-  }
-}
-
-@media screen and (min-width: 639px) and (max-width: 750px){
-  #map{
-
-    width: 20em; height: 20em;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 /************************/
 /* Gallery              */
 /************************/
+#map{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+
 .jumbo{
   background-image: url('wall.jpg') ;
   max-width: 100%;
