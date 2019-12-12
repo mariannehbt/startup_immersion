@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_12_10_142255) do
+=======
+ActiveRecord::Schema.define(version: 2019_12_11_131339) do
+>>>>>>> 66093e14cba2823c0a41401f4dd5dcc5271f0af7
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_142255) do
     t.bigint "startup_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["startup_id"], name: "index_events_on_startup_id"
   end
 

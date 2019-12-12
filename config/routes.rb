@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
 
+<<<<<<< HEAD
   namespace :admin do
     root 'admin#index'
     resources :users
@@ -34,5 +35,19 @@ Rails.application.routes.draw do
   get 'static/home'
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+=======
+  resources :events do
+    resources :attendances
+    collection do
+      get :search
+    end
+  end
+
+
+  get 'static/home'
+  get '/gallery', to: 'static#gallery'
+  # get '/search' => 'events#search', :as => 'search_page'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+>>>>>>> 66093e14cba2823c0a41401f4dd5dcc5271f0af7
 
 end

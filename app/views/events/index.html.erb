@@ -1,25 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<body>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Start datetime</th>
-      <th>Duration</th>
-      <th>Description</th>
-      <th>Short location</th>
-      <th>Adress</th>
-      <th>Zip code</th>
-      <th>City</th>
-      <th>Startup</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+<!-- <div class="container-fluid"> -->
+
+<h1 class="my-5 text-center">LES IMMERSIONS</h1>
+
+
+
+
+<div class ="container mb-5">
+<div class="gallery" id="gallery">
+
+  <!-- Grid column -->
+  <div class="mb-3  pics animation mdb-lightbox-ui ">
     <% @events.each do |event| %>
+<<<<<<< HEAD
       <tr>
         <td><%= event.title %></td>
         <td><%= event.start_datetime %></td>
@@ -63,3 +59,43 @@
 
 
 
+=======
+    <img class="card-img-top" src=<%= asset_path 'photo2.jpg' %> alt="Card image cap">
+    <div class="card-header center"><%= event.title %></div>
+    <div class="card-body">
+        <ul class="none">
+
+          <li><%= event.start_datetime %></li>
+          <li><%= event.duration %> min</li><br />
+          <li class="card-text"><%= event.description %></li><br />
+
+          <li><%= event.short_location %></li>
+          <li><%= event.adress %></li>
+
+           <li> <!-- if user = register -->
+            <%= event.zip_code %>
+            <%= event.city %>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="card-footer center">
+        <p class="card-text"><a class="btn btn-primary btn-sm" href="#" role="button">EN VOIR +</a> <a class="btn btn-primary btn-sm" href="#" role="button">SE PRÉ-INSCRIRE</a></p>
+
+      </div>
+    <% end %>
+  </div>
+
+
+</div>
+</div>
+
+<div class="center mb-5">
+    <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
+  </div>
+<script src="app/assets/javascripts/gallery.js"></script>
+
+
+</body>
+>>>>>>> 66093e14cba2823c0a41401f4dd5dcc5271f0af7
