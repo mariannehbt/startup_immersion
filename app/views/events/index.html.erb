@@ -1,10 +1,4 @@
 
-  <!-- GOOGLE MAP -->
-      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=[YOUR_KEY_API]&callback=initMap"></script>
-      <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-      <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
-      <script src='//underscorejs.org/underscore-min.js' type='text/javascript'></script>
-    <!-- GOOGLE MAP -->
 <body>
 
 
@@ -15,13 +9,13 @@
 
 
 
-<div class ="container">
+<div class ="container mb-5">
 <div class="gallery" id="gallery">
 
   <!-- Grid column -->
   <div class="mb-3  pics animation mdb-lightbox-ui ">
     <% @events.each do |event| %>
-    <img class="card-img-top" src=<%= asset_path 'photo1.jpg' %> alt="Card image cap">
+    <img class="card-img-top" src=<%= asset_path 'photo2.jpg' %> alt="Card image cap">
     <div class="card-header center"><%= event.title %></div>
     <div class="card-body">
         <ul class="none">
@@ -42,22 +36,19 @@
       </div>
 
       <div class="card-footer center">
-        <p class="card-text"><a class="btn btn-secondary btn-md" href="#" role="button">View More</a> <a class="btn btn-secondary btn-md" href="#" role="button">Subscribe</a></p>
-        <!-- if user = admin -->
-        <%= link_to 'Show', event %>
-        <%= link_to 'Edit', edit_event_path(event) %>
-        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <p class="card-text"><a class="btn btn-primary btn-sm" href="#" role="button">EN VOIR +</a> <a class="btn btn-primary btn-sm" href="#" role="button">SE PRÉ-INSCRIRE</a></p>
+
       </div>
     <% end %>
   </div>
 
 
 </div>
-<%= link_to 'New Event', new_event_path %>
 </div>
 
-<%= render 'google_map_event' %>
-
+<div class="center mb-5">
+    <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
+  </div>
 <script src="app/assets/javascripts/gallery.js"></script>
 
 
