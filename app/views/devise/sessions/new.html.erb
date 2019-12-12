@@ -14,7 +14,7 @@
         <%= f.password_field :password, autocomplete: "current-password" %>
 
       </div>
-    </br>
+    <br/>
 
       <% if devise_mapping.rememberable? %>
         <div class="field">
@@ -27,10 +27,8 @@
         <%= f.submit "CONNEXION" %>
       </div>
     <% end %>
-</br>
+<br/>
     <%= render "devise/shared/links" %>
-  </br>
+  <br/>
     <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
 </div>
-</br>
-</br>
