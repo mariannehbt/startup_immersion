@@ -92,10 +92,6 @@ column-width: 100%;
 /* Ajout dans style.css */
 /************************/
 
-#search {
-
-    padding-top-top: 2em;
-}
 
 .none{
   list-style-type: none;
@@ -168,10 +164,11 @@ position: top;
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 6em;
   background-color: #f8f9fa;
   text-align: center;
-  padding-top: 1em;
-  margin-top: 3em;
+  padding-top: 2em;
+  margin-top: 0;
 }
 
 .btn-primary {
@@ -231,8 +228,9 @@ position: top;
 #container1 {
 background-color: #ded1f3;
 max-width: 100%;
-padding-bottom: 2em;
+padding-bottom: 3em;
 padding-top: 1.5em;
+margin: 0em;
 }
 
 .card-img-top {
