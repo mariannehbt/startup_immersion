@@ -21,8 +21,10 @@
         <td><%= startup.website_url %></td>
         <td><%= startup.description %></td>
         <td><%= link_to 'Show', startup %></td>
-        <td><%= link_to 'Edit', edit_startup_path(startup) %></td>
-        <td><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_admin_startup_path(startup) %></td>
+          <td><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +32,9 @@
 
 <br>
 
-<%= link_to 'New Startup', new_startup_path %>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'New Startup', new_admin_startup_path %> |
+  <%= link_to 'Back', :admin_root %>
+<% else %>
+  <%= link_to 'Back', :root %>
+<% end %>

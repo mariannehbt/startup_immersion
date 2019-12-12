@@ -20,5 +20,14 @@
   <%= @startup.description %>
 </p>
 
-<%= link_to 'Edit', edit_startup_path(@startup) %> |
-<%= link_to 'Back', startups_path %>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Edit', edit_admin_startup_path(@startup) %> |
+  <%= link_to 'Back', startups_path %>
+<% else %>
+  <%= link_to 'Back', startups_path %>
+<% end %>
+
+
+
+
+

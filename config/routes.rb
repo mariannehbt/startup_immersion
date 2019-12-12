@@ -8,9 +8,12 @@ Rails.application.routes.draw do
     resources :avatars, only: [:create]
   end
 
+  resources :startups, only: [:index, :show, :create, :update, :destroy]
+
   namespace :admin do
     root 'admin#index'
     resources :users
+    resources :startups
   end
 
   scope module: "admin" do
@@ -18,8 +21,13 @@ Rails.application.routes.draw do
     resources :situations
   end
 
+
+
+
+
+
   resources :newsletters
-  resources :startups
+  
 
   resources :events do
     resources :attendances
