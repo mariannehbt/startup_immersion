@@ -80,9 +80,12 @@
 
 <% if current_user && current_user.admin? %>
   <%= link_to 'Edit', edit_admin_event_path(@event) %> |
-  <%= link_to 'Add Attendance', new_event_attendance_path(@event) %> |
+  <%= link_to 'Ajouter une pré-inscription', new_event_attendance_path(@event) %> |
   <%= link_to 'Back', :back %>
+<% elsif @event.users.include?(current_user) %>
+  <%= link_to 'Déjà pré-inscrit(e)', user_path(current_user) %> |
+  <%= link_to 'Back', :events %>
 <% else %>
-  <%= link_to 'Add Attendance', new_event_attendance_path(@event) %> |
-  <%= link_to 'Back', events_path %>
+  <%= link_to 'Se pré-inscrire', new_event_attendance_path(@event) %> |
+  <%= link_to 'Back', :events %>
 <% end %>

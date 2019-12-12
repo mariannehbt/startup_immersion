@@ -9,27 +9,6 @@ class Admin::AttendancesController < Admin::BaseController
     @attendances = @event.attendances
   end
 
-  # GET /attendances/new
-  def new
-    @attendance = @event.attendances.build
-  end
-
-  # POST /attendances
-  # POST /attendances.json
-  def create
-    @attendance = @event.attendances.build(attendance_params)
-
-    respond_to do |format|
-      if @attendance.save
-        format.html { redirect_to event_attendances_path(@event), notice: 'Attendance was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance }
-      else
-        format.html { render :new }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   private
     def get_event
       @event = Event.find(params[:event_id])
