@@ -10,10 +10,16 @@ Rails.application.routes.draw do
 
   resources :startups, only: [:index, :show, :create, :update, :destroy]
 
+  resources :events, only: [:index, :show, :create, :update, :destroy] do
+    resources :attendances
+  end
+
+
   namespace :admin do
     root 'admin#index'
     resources :users
     resources :startups
+    resources :events
   end
 
   scope module: "admin" do
@@ -29,9 +35,7 @@ Rails.application.routes.draw do
   resources :newsletters
   
 
-  resources :events do
-    resources :attendances
-  end
+
 
   get 'static/home'
 

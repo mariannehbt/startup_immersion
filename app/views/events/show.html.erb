@@ -82,6 +82,10 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Add Attendance', event_attendances_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Edit', edit_admin_event_path(@event) %> |
+  <%= link_to 'Add Attendance', event_attendances_path(@event) %> |
+  <%= link_to 'Back', events_path %>
+<% else %>
+  <%= link_to 'Back', events_path %>
+<% end %>

@@ -22,9 +22,9 @@
 
 <% if current_user && current_user.admin? %>
   <%= link_to 'Edit', edit_admin_startup_path(@startup) %> |
-  <%= link_to 'Back', startups_path %>
+  <%= link_to 'Back', :back %>
 <% else %>
-  <%= link_to 'Back', startups_path %>
+  <%= link_to 'Back', :back %>
 <% end %>
 
 
