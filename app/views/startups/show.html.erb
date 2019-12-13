@@ -1,20 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @startup.name %>
-</p>
+<br />
+<br />
+<div class="container">
+  <h1>
+    <strong>Name:</strong>
+    <%= @startup.name %>
+  </h1>
 
-<p>
-  <strong>Catch phrase:</strong>
-  <%= @startup.catch_phrase %>
-</p>
+  <p>
+    <strong>Catch phrase:</strong>
+    <%= @startup.catch_phrase %>
+  </p>
 
-<p>
-  <strong>Website url:</strong>
-  <%= @startup.website_url %>
-</p>
+  <p>
+    <strong>Website url:</strong>
+    <%= @startup.website_url %>
+  </p>
 
+<<<<<<< HEAD
 <p>
   <strong>Description:</strong>
   <%= @startup.description %>
@@ -31,3 +35,13 @@
 
 
 
+=======
+  <p>
+    <strong>Description:</strong>
+    <%= @startup.description %>
+  </p>
+</div><br /><br />
+<div class="center">
+    <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
+</div>
+>>>>>>> front

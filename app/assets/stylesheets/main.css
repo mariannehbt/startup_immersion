@@ -3,15 +3,10 @@
 /************************/
 /* Gallery              */
 /************************/
-#map{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
+
 
 .jumbo{
-  background-image: url('wall.jpg') ;
+  /* background-image: url('wall.jpg') ; */
   max-width: 100%;
 
   background-position: center;
@@ -75,13 +70,27 @@ column-width: 100%;
 }
 }
 
-
+.card-img{
+  background-image: url('city.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 15em;
+}
 
 
 
 /************************/
 /* Ajout dans style.css */
 /************************/
+
+#map{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+
 .list-group-item{
   background-color: transparent ;
   overflow: hidden;
