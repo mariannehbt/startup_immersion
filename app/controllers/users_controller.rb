@@ -63,7 +63,7 @@ def update
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :situation_id, :formation, :activity_id, :description, :linked_in_url, :newsletter_id)
+      params.require(:user).permit(:first_name, :last_name, :situation_id, :formation, :activity_id, :description, :linked_in_url, :newsletter_id, :admin)
     end
 
     def is_right_user?
