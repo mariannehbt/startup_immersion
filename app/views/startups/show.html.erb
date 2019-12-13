@@ -4,17 +4,17 @@
 <br />
 <div class="container">
   <h1>
-    <strong>Name:</strong>
-    <%= @startup.name %>
+    
+    <%= @startup.name.upcase %>
   </h1>
 
   <p>
-    <strong>Catch phrase:</strong>
+    <strong>Catch phrase: </strong>
     <%= @startup.catch_phrase %>
   </p>
 
   <p>
-    <strong>Website url:</strong>
+    <strong>Website url: </strong>
     <%= @startup.website_url %>
   </p>
 
@@ -37,7 +37,7 @@
 
 =======
   <p>
-    <strong>Description:</strong>
+    <strong>Description: </strong>
     <%= @startup.description %>
   </p>
 </div><br /><br />
