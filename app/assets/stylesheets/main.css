@@ -1,10 +1,28 @@
 
 
 /************************/
-/* Gallery              */
+/* Ajout dans style.css */
 /************************/
+.card-img-top{
+  background-size: cover;
+  
+  border-radius: 20px;
+}
 
+.card-foot{
+  align-items:baseline;
+}
 
+.shadow{
+-webkit-box-shadow: 4px 4px 34px 7px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 4px 34px 7px rgba(0,0,0,0.75);
+box-shadow: 4px 4px 34px 7px rgba(0,0,0,0.75);
+border-radius: 20px;
+
+}
+.shadow:hover{
+  background-color:#F2F2F2;
+}
 .jumbo{
   /* background-image: url('wall.jpg') ; */
   max-width: 100%;
@@ -41,6 +59,8 @@ column-count: 3;
 -webkit-column-width: 33%;
 -moz-column-width: 33%;
 column-width: 33%; }
+
+
 .gallery .pics {
 -webkit-transition: all 350ms ease;
 transition: all 350ms ease; }
@@ -48,6 +68,10 @@ transition: all 350ms ease; }
 -webkit-transform: scale(1);
 -ms-transform: scale(1);
 transform: scale(1); }
+
+.pics:hover{
+  opacity: 0.5;
+}
 
 @media (max-width: 500px) {
 .gallery {
@@ -80,9 +104,8 @@ column-width: 100%;
 
 
 
-/************************/
-/* Ajout dans style.css */
-/************************/
+
+
 
 #map{
     overflow:hidden;

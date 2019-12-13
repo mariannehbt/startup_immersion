@@ -1,56 +1,60 @@
 
-<body>
+
 
 
 <!-- <div class="container-fluid"> -->
 
-<h1 class="my-5 text-center">LES IMMERSIONS</h1>
+  <h1 class="my-5 text-center">LES IMMERSIONS</h1>
 
 
 
-
-<div class ="container mb-5">
-<div class="gallery" id="gallery">
+  <div class ="container">
+    <div class="row " style="align-items:stretch">
 
   <!-- Grid column -->
-  <div class="mb-3  pics animation mdb-lightbox-ui ">
-    <% @events.each do |event| %>
-    <img class="card-img-top" src=<%= asset_path 'photo2.jpg' %> alt="Card image cap">
-    <div class="card-header center"><%= event.title %></div>
-    <div class="card-body">
-        <ul class="none">
+<!-- <div  class="card-row"> -->
+      <% @events.each do |event| %>
 
-          <li><%= event.start_datetime %></li>
-          <li><%= event.duration %> min</li><br />
-          <li class="card-text"><%= event.description %></li><br />
+          <div class=" p-3 col-lg-4 col-sm-12 ">
+            <div class="card p-3 shadow">
+              <img class="card-img-top  img-border" src="<%= asset_path 'photo2.jpg' %>" alt="Card image cap"/>
+              <div class="center mt-2"><%= event.title.upcase %></div>
+                <div class="card-body">
+                  <ul class="none">
+                      <li><%= event.start_datetime %></li>
+                      <li><%= event.duration %> min</li><br />
+                      <li class="card-text"><%= event.description %></li><br />
 
-          <li><%= event.short_location %></li>
-          <li><%= event.adress %></li>
+                      <li><%= event.short_location %></li>
+                      <li><%= event.adress %></li>
 
-           <li> <!-- if user = register -->
-            <%= event.zip_code %>
-            <%= event.city %>
-          </li>
-        </ul>
+                      <li> <!-- if user = register -->
+                        <%= event.zip_code %>
+                        <%= event.city %>
+                      </li>
+                  </ul><br />
 
-      </div>
+                </div>
+                <div class="card-foot center">
+                  <p class="card-text"><a class="btn btn-primary btn-sm" role="button"<%= link_to "EN VOIR +", event_path(event.id), :class =>'btn btn-sm btn-primary'%></a>
+                  <a class="btn btn-primary btn-sm" href="#" role="button">SE PRÉ-INSCRIRE</a></p><br />
+                </div>
 
-      <div class="card-footer center">
-        <p class="card-text"><a class="btn btn-primary btn-sm" role="button"<% link_to "Details &raquo;".html_safe, events_path, :class =>'btn btn-sm btn-primary'%>">EN VOIR +"</a>
-          <a class="btn btn-primary btn-sm" href="#" role="button">SE PRÉ-INSCRIRE</a></p>
 
-      </div>
-    <% end %>
+
+              </div>
+            </div>
+
+          <% end %>
+<!-- </div> -->
+
+
+    </div>
+
+
   </div>
 
-
-</div>
-</div>
 
 <div class="center mb-5">
     <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
-  </div>
-<script src="app/assets/javascripts/gallery.js"></script>
-
-<%# <%= link_to "Details &raquo;".html_safe, user_path(event_attendances), :class =>'btn btn-sm btn-primary' %> %>
-</body>
+</div>
