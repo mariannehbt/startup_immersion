@@ -5,15 +5,15 @@
     <script src='//underscorejs.org/underscore-min.js' type='text/javascript'></script>
   <!-- GOOGLE MAP -->
 
-  <div class="jumbo">
+
   <p id="notice"><%= notice %></p>
 
-  <div class="container-fluid">
 
 
-    <div class="jumbotron-fluid Jumbo-Background">
+
+<br />
       <div class="container">
-            <h1 class="display-4 center"><%= @event.title %></h1>
+            <h1 class="center"><%= @event.title.upcase %></h1>
             <p class="lead">
               <strong>Start datetime:</strong>
               <%= @event.start_datetime %>
@@ -59,17 +59,25 @@
             <%= link_to 'Startup', startup_path(@event.startup.id) %>
           </p><br/>
 
+          <br />
+          <br />
 
-            <h3>Attendances</h3>
-            <% for attendance in @event.attendances %>
-            <p class="lead">
-              <%= attendance.motivation %>
-            </p>
-            <% end %>
+          <h3>Attendances</h3>
+          <% for attendance in @event.attendances %>
+          <p class="lead">
+            <%= attendance.motivation %>
+          </p>
+          <% end %>
 
 
 
 
+
+            <br />
+            <br />
+
+
+              <div id="map"><%= render 'google_map_event' %></div> <br />
 
               <ul class="list-group list-group-flush">
                 <strong><h3>Registration for this event :</h3>
@@ -78,27 +86,14 @@
                 <% @event.users.each do |event_attendances| %>
 
                     <li class="list-group-item">
-                      <%= event_attendances.first_name %>
-                      <%= event_attendances.email %> &nbsp;
-                      <%= link_to "Details &raquo;".html_safe, user_path(event_attendances), :class =>'btn btn-sm btn-primary' %>
+
+                      &nbsp; <%= event_attendances.first_name %>
+                      &nbsp; <%= event_attendances.email %>
+                      <%= link_to "Details &raquo;".html_safe, user_path(event_attendances), :class =>'btn btn-sm btn-outline-secondary float-right' %>
                     </li>
                 <% end %>
-              </ul>
-
-
+              </ul><br />
+              <div class="center">
+                  <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
+              </div>
           </div>
-
-
-<%= render 'google_map_event' %>
-
-
-
-
-
-    </div>
-    <%= link_to 'Edit', edit_event_path(@event) %> |
-    <%= link_to 'Add Attendance', event_attendances_path(@event) %> |
-    <%= link_to 'Back', events_path %>
-  </div>
-
-  </div>
