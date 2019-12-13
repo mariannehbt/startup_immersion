@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Attendances Submissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Event</th>
+      <th>Details</th>
+      <th>Reviewed</th>
+      <th>validated</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attendances_submissions.each do |attendance_submission| %>
+      <tr>
+        <td><%= link_to "#{attendance_submission.user.email} &raquo;".html_safe, user_path(attendance_submission.user) %></td>
+        <td><%= link_to "#{attendance_submission.event.title} &raquo;".html_safe, event_path(attendance_submission.event) %></td>
+        <td><%= link_to "Submission &raquo;".html_safe, event_attendance_path(attendance_submission.event, attendance_submission) %></td>
+        <td><%= attendance_submission.reviewed? %></td>
+        <td><%= attendance_submission.validated? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', :admin_root %>

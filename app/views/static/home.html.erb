@@ -24,7 +24,8 @@
 
     <li>
       <% if current_user.admin? %>
-        <%= link_to "Admin Dashboard", admin_root_path %>
+        <%= link_to "Admin Dashboard", admin_root_path %> </br>
+        <%= link_to "#{Attendance.where(reviewed: false).count} new submissions ! &raquo;".html_safe, admin_attendances_submissions_path %>
       <% else %>
         <%= link_to "My Profile", user_path(current_user) %>
       <% end %>

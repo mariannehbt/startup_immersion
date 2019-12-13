@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :events do
       resources :attendances
     end
+    resources :attendances_submissions, only: [:index]
   end
 
   scope module: 'admin' do

@@ -33,5 +33,12 @@
 	<li><%= link_to 'New Event', new_admin_event_path %></li>
 </ul>
 
+<h3>Attendances Submissions</h3>
+<ul>
+	<li><%= link_to "#{Attendance.where(reviewed: false).count} new submissions ! &raquo;".html_safe, admin_attendances_submissions_path %></li>
+	<li><%= Attendance.where(reviewed: false).count %> new submissions !</li>
+	<li><%= link_to 'Index', admin_attendances_submissions_path %></li>
+</ul>
+
 <%= link_to 'Back', :back %> |
 <%= link_to 'Home', :root %>
