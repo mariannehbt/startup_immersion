@@ -81,6 +81,7 @@
 <% if current_user && current_user.admin? %>
   <%= link_to 'Edit', edit_admin_event_path(@event) %> |
   <%= link_to 'Ajouter une pré-inscription', new_event_attendance_path(@event) %> |
+  <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |
   <%= link_to 'Back', :events %>
 <% elsif @event.users.include?(current_user) %>
   <%= link_to 'Déjà pré-inscrit(e)', user_path(current_user) %> |
