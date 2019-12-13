@@ -76,6 +76,7 @@
       <th>Event</th>
       <th>Date</th>
       <th>Attendance</th>
+      <th>Review</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
@@ -83,11 +84,13 @@
 
   <tbody>
     <% @user.events.each do |user_attendances| %>
+      <% att = Attendance.find_by(user_id: @user, event_id: user_attendances) %>
       <tr>
         <td><%= link_to "#{user_attendances.title} &raquo;".html_safe, event_path(user_attendances), :class =>'btn btn-primary' %></td>
         <td><%= user_attendances.start_datetime %></td>
-        <td><%= link_to "Details &raquo;".html_safe, event_attendance_path(user_attendances, Attendance.find_by(user_id: @user, event_id: user_attendances).id), :class =>'btn btn-primary' %></td>
-        <td>Waiting for admin confirmation</td>
+        <td><%= link_to "Details &raquo;".html_safe, event_attendance_path(user_attendances, att.id), :class =>'btn btn-primary' %></td>
+        <td><%= att.reviewed? %></td>
+        <td><%= att.validated? %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Review:</strong>
+  <%= @attendance.reviewed? %>
+</p>
+
+<p>
+  <strong>Statut:</strong>
+  <%= @attendance.validated? %>
+</p>
+
+<p>
   <strong>User:</strong>
   <%= @attendance.user.email %>
 </p>
@@ -30,6 +40,20 @@
   <strong>Updated at:</strong>
   <%= @attendance.updated_at %>
 </p>
+
+<% if current_user && current_user.admin? %>
+
+  <p>
+    <strong>Review:</strong>
+    <%= @attendance.reviewed? %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= @attendance.validated? %>
+  </p>
+
+<% end %>
 
 <%= link_to 'Edit', edit_event_attendance_path(@event, @attendance) %> |
 <% if current_user && current_user.admin? %>

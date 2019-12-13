@@ -56,12 +56,12 @@
     <%= form.text_field :newsletter %>
   </div>
 
-  <% if current_user && current_user.admin? %>
-    <div class="field">
+  <div class="field">
+    <% if current_user && current_user.admin? %>
       <%= form.label :admin %>
       <%= form.select :admin, [['Admin', true], ['User', false]] %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

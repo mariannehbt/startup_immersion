@@ -30,6 +30,20 @@
     <%= form.text_area :comment %>
   </div>
 
+  <div class="field">
+    <% if current_user && current_user.admin? %>
+      <%= form.label :reviewed %>
+      <%= form.select :reviewed, [['Reviewed', true], ['Waiting for review', false]] %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% if current_user && current_user.admin? %>
+      <%= form.label :validated %>
+      <%= form.select :validated, [['Validated', true], ['Not Validated', false]] %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
