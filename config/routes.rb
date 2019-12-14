@@ -27,14 +27,28 @@ Rails.application.routes.draw do
     resources :attendances_submissions, only: [:index]
   end
 
+<<<<<<< HEAD
   scope module: 'admin' do
     resources :newsletters, except: :create
     resources :activities
     resources :situations
+=======
+  resources :events do
+    resources :attendances
+    collection do
+      get :search
+    end
+>>>>>>> front
   end
 
-  get 'static/home'
 
+<<<<<<< HEAD
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+=======
+  get 'static/home'
+  get '/gallery', to: 'static#gallery'
+  # get '/search' => 'events#search', :as => 'search_page'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+>>>>>>> front
 
 end
