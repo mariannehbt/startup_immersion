@@ -12,7 +12,7 @@
               <li class="center"><h3><strong><%= startup.name.upcase %></strong></h3></li>
               <li><strong>slogan: </strong> <%= startup.catch_phrase %></li>
               <li><strong>site internet: </strong> <%= startup.website_url %></li><br/>
-              <li><strong>description: </strong> <%= startup.description %></li>
+              <li><strong>description: </strong> <%= startup.description %></li><br />
               <li><%= link_to 'Show', startup_path(startup.id) ,class: "btn btn-outline-secondary"%></li>
               <li><% if current_user && current_user.admin? %></li>
 
