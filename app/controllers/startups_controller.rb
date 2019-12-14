@@ -10,6 +10,7 @@ class StartupsController < ApplicationController
   # GET /startups/1
   # GET /startups/1.json
   def show
+    @startup = Startup.find(params[:id])
   end
 
   # GET /startups/new

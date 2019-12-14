@@ -12,4 +12,6 @@ class Startup < ApplicationRecord
 
   validates :description,
   presence: true
+
+  has_one_attached :startup_picture
 end
