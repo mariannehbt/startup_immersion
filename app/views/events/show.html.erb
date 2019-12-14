@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<%if @event.event_picture.attached?%>
+  <%= image_tag @event.event_picture, alt: 'event_picture' %>
+<%else%>
+  <p>=== Il n'y a pas encore d'event picture lié à cet event ===</p>
+<%end%>
+<h3>Changer d'event picture ?</h3>
+<%= form_tag event_events_pictures_path(@event), multipart: true do %>
+  <%= file_field_tag :event_picture %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>
+
 <p>
   <strong>Startup:</strong>
   <%= @event.startup.name %>

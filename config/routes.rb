@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :startups, only: [:index, :show, :create, :update, :destroy]
 
   resources :events, only: [:index, :show, :create, :update, :destroy] do
+    resources :events_pictures, only: [:create]
     resources :attendances, except: :index
   end
 

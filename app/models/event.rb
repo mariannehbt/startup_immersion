@@ -35,6 +35,8 @@ class Event < ApplicationRecord
   presence: true,
   length: {in: 1..140, message: ' must be between 5 and 140 characters long'}
 
+  has_one_attached :event_picture
+
   def end_date
   	return start_datetime + (duration * 60)
   end
