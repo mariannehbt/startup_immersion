@@ -15,4 +15,12 @@ class User < ApplicationRecord
   def welcome_send
   	UserMailer.welcome_email(self).deliver_now
   end
+
+  after_create :check_newsletter
+  def check_newsletter
+    existing_newsletter = Newsletter.find_by(email: self.email)
+    if existing_newsletter != nil
+      self.update!(newsletter: existing_newsletter)
+    end
+  end
 end
