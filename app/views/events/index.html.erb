@@ -9,10 +9,8 @@
 
 
   <div class ="container">
-    <div class="row " style="align-items:stretch">
 
-  <!-- Grid column -->
-<!-- <div  class="card-row"> -->
+    <div  class="row">
       <% @events.each do |event| %>
 
           <div class=" p-3 col-lg-4 col-sm-12 ">
@@ -21,7 +19,7 @@
               <div class="center mt-2"><%= event.title.upcase %></div>
                 <div class="card-body">
                   <ul class="none">
-                      <li><%= event.start_datetime %></li>
+                      <li><%= event.start_datetime%></li>
                       <li><%= event.duration %> min</li><br />
                       <li class="card-text"><%= event.description %></li><br />
 
@@ -46,13 +44,13 @@
             </div>
 
           <% end %>
-<!-- </div> -->
+        </div>
 
 
     </div>
 
 
-  </div>
+
 
 
 <div class="center mb-5">

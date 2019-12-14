@@ -3,9 +3,10 @@
 /************************/
 /* Ajout dans style.css */
 /************************/
+
 .card-img-top{
   background-size: cover;
-  
+
   border-radius: 20px;
 }
 
@@ -18,6 +19,7 @@
 -moz-box-shadow: 4px 4px 34px 7px rgba(0,0,0,0.75);
 box-shadow: 4px 4px 34px 7px rgba(0,0,0,0.75);
 border-radius: 20px;
+
 
 }
 .shadow:hover{
