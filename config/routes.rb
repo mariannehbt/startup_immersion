@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'static#home'
 
+  resources :newsletters, only: [:new, :create]
+
   devise_for :users
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :avatars, only: [:create]
@@ -26,11 +28,10 @@ Rails.application.routes.draw do
   end
 
   scope module: 'admin' do
+    resources :newsletters, except: :create
     resources :activities
     resources :situations
   end
-
-  resources :newsletters
 
   get 'static/home'
 

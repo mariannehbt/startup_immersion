@@ -1,4 +1,4 @@
-class NewslettersController < ApplicationController
+class Admin::NewslettersController < Admin::BaseController
   before_action :set_newsletter, only: [:show, :edit, :update, :destroy]
 
   # GET /newsletters
@@ -28,7 +28,7 @@ class NewslettersController < ApplicationController
 
     respond_to do |format|
       if @newsletter.save
-        format.html { redirect_to root_path, notice: 'Newsletter was successfully created.' }
+        format.html { redirect_to @newsletter, notice: 'Newsletter was successfully created.' }
         format.json { render :show, status: :created, location: @newsletter }
       else
         format.html { render :new }

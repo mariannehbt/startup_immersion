@@ -61,6 +61,7 @@ end
 	User.create!(
 		email: 'alison.marceline@yopmail.com',
 		password: 'coucou',
+		newsletter: Newsletter.find_by(email: 'alison.marceline@yopmail.com'),
 		admin: true,
 		)
 
@@ -82,7 +83,6 @@ puts '*' * 60
 		activity: Activity.all.sample,
 		description: Faker::Demographic.marital_status + ' ' + Faker::Demographic.sex + ' of ' + rand(18..36).to_s + '. Currently working in ' + Faker::IndustrySegments.industry + ' as ' + Faker::Company.profession + ".",
 		linked_in_url: Faker::Internet.url(host: 'linkedin.com', path: "/#{user_first_name.parameterize.underscore}.#{user_last_name.parameterize.underscore}"),
-		newsletter: Newsletter.all.sample,
 		)
 end
 

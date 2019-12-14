@@ -51,7 +51,11 @@
 
 <p>
   <strong>Newsletter:</strong>
-  <%= @user.newsletter %>
+  <% if @user.newsletter == nil %>
+    <%= @user.newsletter %>
+  <% else %>
+    <%= @user.newsletter.created_at %>
+  <% end %>
 </p>
 
 <p>
