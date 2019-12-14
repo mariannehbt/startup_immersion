@@ -4,47 +4,50 @@
 <h1 class="center">Startups</h1>
 
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+    <table class="table table-hover">
+
+      <thead>
+        <tr>
+          <th scope="col">Mame</th>
+          <th scope="col">Catch_phrase</th>
+          <th scope="col">Website_url</th>
+          <th scope="col">Description</th>
+          <th scope="col">Option</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @startups.each do |startup| %>
+        <tr>
+            <td><%= startup.name.upcase %></td>
+            <td><%= startup.catch_phrase %></td>
+            <td><%= startup.website_url %></td>
+            <td><%= startup.description %></td>
+            <td><%= link_to 'Show', startup %>
+            <% if current_user && current_user.admin? %>
+              <%= link_to 'Edit', edit_admin_startup_path(startup) %></td>
+              <%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            </td>
+        </tr>
+    
+          <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+ 
 
 
-    <% @startups.each do |startup| %>
-<<<<<<< HEAD
-      <tr>
-        <td><%= startup.name %></td>
-        <td><%= startup.catch_phrase %></td>
-        <td><%= startup.website_url %></td>
-        <td><%= startup.description %></td>
-        <td><%= link_to 'Show', startup %></td>
-        <% if current_user && current_user.admin? %>
-          <td><%= link_to 'Edit', edit_admin_startup_path(startup) %></td>
-          <td><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-=======
-      <ul class="none">
-        <strong><li><%= startup.name.upcase %></li></strong>
-        <li><%= startup.catch_phrase %></li>
-        <li><%= startup.website_url %></li><br />
-        <li><%= startup.description %></li>
-        <li><%= link_to 'Show', startup ,class: "btn btn-outline-secondary"%></li>
-
-        <!-- <li><%= link_to 'Edit', edit_startup_path(startup) %></li>
-        <li><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></li> -->
-      </ul> <br />
->>>>>>> front
-    <% end %>
-
-
-<<<<<<< HEAD
+<div class="center">
 <% if current_user && current_user.admin? %>
   <%= link_to 'New Startup', new_admin_startup_path %> |
   <%= link_to 'Back', :admin_root %>
 <% else %>
-  <%= link_to 'Back', :root %>
+  <%= link_to "<< BACK", :back %>
 <% end %>
-=======
-<br />
-<div class="center">
-    <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
-</div>
 <%# <%= link_to 'New Startup', new_startup_path %>
->>>>>>> front
+</div>
