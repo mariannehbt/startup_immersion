@@ -41,6 +41,11 @@ Rails.application.routes.draw do
 >>>>>>> front
   end
 
+<<<<<<< HEAD
+=======
+  get 'static/home'
+    get '/gallery', to: 'static#gallery'
+>>>>>>> install
 
 <<<<<<< HEAD
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

@@ -44,64 +44,6 @@
       <%= form.select :activity_id, options_from_collection_for_select(Activity.all, :id, :name, @user.activity_id), { :prompt => 'Choose from list :'} %>
     </div>
 
-<<<<<<< HEAD
-  <div class="field">
-    <%= form.label :email %>
-    <%= @user.email%>
-  </div>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :situation %>
-    <%= form.select :situation_id, options_from_collection_for_select(Situation.all, :id, :title, @user.situation_id), { :prompt => 'Choose from list :'} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :formation %>
-    <%= form.text_field :formation %>
-  </div>
-
-  <div class="field">
-    <%= form.label :activity %>
-    <%= form.select :activity_id, options_from_collection_for_select(Activity.all, :id, :name, @user.activity_id), { :prompt => 'Choose from list :'} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :linked_in_url %>
-    <%= form.text_field :linked_in_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :newsletter %>
-    <%= form.text_field :newsletter %>
-  </div>
-
-  <div class="field">
-    <% if current_user && current_user.admin? %>
-      <%= form.label :admin %>
-      <%= form.select :admin, [['Admin', true], ['User', false]] %>
-    <% end %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-=======
     <br/>
     <div class="field">
       <%= form.label :description %><br />
@@ -118,8 +60,24 @@
       <%= form.text_field :newsletter %>
     </div>
 
+    <br/>
+    <div class="field">
+      <%= form.label :description %><br />
+      <%= form.text_field :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :linked_in_url %><br />
+      <%= form.text_field :linked_in_url %>
+    </div>
+
+    <div class="field">
+      <%= form.label :newsletter %><br />
+      <%= form.text_field :newsletter %>
+    </div>
+
+=======
     <div class="actions">
       <%= form.submit %>
     </div>
   <% end %>
->>>>>>> front
