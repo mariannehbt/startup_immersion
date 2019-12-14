@@ -76,7 +76,6 @@
       <th>Event</th>
       <th>Date</th>
       <th>Attendance</th>
-      <th>Review</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
@@ -89,8 +88,13 @@
         <td><%= link_to "#{user_attendances.title} &raquo;".html_safe, event_path(user_attendances), :class =>'btn btn-primary' %></td>
         <td><%= user_attendances.start_datetime %></td>
         <td><%= link_to "Details &raquo;".html_safe, event_attendance_path(user_attendances, att.id), :class =>'btn btn-primary' %></td>
-        <td><%= att.reviewed? %></td>
-        <td><%= att.validated? %></td>
+        <%if att.reviewed? && att.validated? %>
+          <td>Inscription confirmée !</td>
+        <%elsif att.reviewed? && att.validated? == false %>
+          <td>Pré-inscription non retenue</td>
+        <% else %>
+          <td>Pré-inscription en attente de validation</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -82,11 +82,16 @@
   <%= link_to 'Edit', edit_admin_event_path(@event) %> |
   <%= link_to 'Ajouter une pré-inscription', new_event_attendance_path(@event) %> |
   <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |
-  <%= link_to 'Back', :events %>
 <% elsif @event.users.include?(current_user) %>
-  <%= link_to 'Déjà pré-inscrit(e)', user_path(current_user) %> |
-  <%= link_to 'Back', :events %>
+  <% att = Attendance.find_by(user_id: current_user, event_id: @event) %>
+    <%if att.reviewed? && att.validated? %>
+      <%= link_to 'Mon inscription', user_path(current_user) %> |
+    <%elsif att.reviewed? && att.validated? == false %>
+      <%= link_to 'Ma pré-inscription', user_path(current_user) %> |
+    <% else %>
+      <%= link_to 'Déjà pré-inscrit(e)', user_path(current_user) %> |
+    <% end %>
 <% else %>
   <%= link_to 'Se pré-inscrire', new_event_attendance_path(@event) %> |
-  <%= link_to 'Back', :events %>
 <% end %>
+<%= link_to 'Back', :events %>
