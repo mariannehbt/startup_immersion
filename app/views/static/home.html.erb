@@ -27,19 +27,6 @@
 </br>
 
 
-<<<<<<< HEAD
-<p><%= link_to "All startups &raquo;".html_safe, startups_path, :class =>'btn btn-primary' %></p>
-
-<h3>Test Devise : options à ajouter à la NavBar</h3>
-
-<ul>
-  <% if user_signed_in? %>
-
-    <li>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    </li>
-=======
-
 <div class="container-fluid">
   <div id="container1">
     <h1 class="text-center text-white">LES STARTUP PARTENAIRES</h1>
@@ -56,7 +43,7 @@
     </div>
   </div>
 </div>
->>>>>>> 66093e14cba2823c0a41401f4dd5dcc5271f0af7
+
 
 <div class="container">
   <div class="row">
@@ -74,29 +61,6 @@
 </div>
 </div>
 
-<<<<<<< HEAD
-    <li>
-      <% if current_user.admin? %>
-        <%= link_to "Admin Dashboard", admin_root_path %>
-      <% else %>
-        <%= link_to "My Profile", user_path(current_user) %>
-      <% end %>
-    </li>
-
-  <% else %>
-    
-    <li>    
-      <%= link_to "Sign in", new_user_session_path %>
-    </li>
-
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
-
-  <% end %>
-
-</ul>
-=======
 
 
 <br/>
@@ -118,16 +82,16 @@
 
 <br/>
 <br/>
+
 <div class="container-fluid">
   <div id="container1">
     <h1 class="text-center text-white">RECHERCHE</h1>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-12">
-      <%= render 'layouts/search_bar' %>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-12">
+          <%= render 'layouts/search_bar' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
-</div>
->>>>>>> 66093e14cba2823c0a41401f4dd5dcc5271f0af7
