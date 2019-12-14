@@ -5,7 +5,7 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card shadow">
         <img class="card-img-top" src=<%= asset_path 'photo6.jpg' %> alt="Card image cap">
         <div class="card-body">
           <p class="card-text"><b>Startup Immersion</b> permet la mise en relation entre professionnel.les et startup ! Pré-inscris-toi aux immersions qui t'intéressent, renseigne ton profil et découvre les valeurs et les principes des startups de l'intérieur ! </p>
@@ -13,30 +13,24 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card shadow">
         <img class="card-img-top" src=<%= asset_path 'photo3.jpg' %> alt="Card image cap">
         <div class="card-body">
           <p class="card-text">Avec <b>Startup Immersion</b>, tu peux rencontrer et échanger en direct avec des professionnel.les des startup qui te font rêver et peut-être rencontrer l'équipe avec laquelle tu travailleras demain !  </p>
         </div>
       </div>
     </div>
-  </div>
+  </div><br />
+  <p><%= link_to "All startups &raquo;".html_safe, startups_path, :class =>'btn btn-primary' %></p>
 </div>
 </div>
 
 </br>
 
 
-<p><%= link_to "All startups &raquo;".html_safe, startups_path, :class =>'btn btn-primary' %></p>
 
-<h3>Test Devise : options à ajouter à la NavBar</h3>
 
-<ul>
-  <% if user_signed_in? %>
 
-    <li>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    </li>
 
 
 <div class="container-fluid">
@@ -74,30 +68,9 @@
 </div>
 
 
-    <li>
-      <% if current_user.admin? %>
-        <%= link_to "Admin Dashboard", admin_root_path %> </br>
-        <%= link_to "#{Attendance.where(reviewed: false).count} new submissions ! &raquo;".html_safe, admin_attendances_submissions_path %>
-      <% else %>
-        <%= link_to "My Profile", user_path(current_user) %>
-      <% end %>
-    </li>
 
-  <% else %>
 
-    <li>
-      <%= link_to "Sign in", new_user_session_path %>
-    </li>
 
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
-
-  <% end %>
-
-</ul>
-
-<p><%= link_to "S'inscrire à la newsletter &raquo;".html_safe, new_newsletter_path, :class =>'btn btn-primary' %></p>
 
 
 
@@ -122,14 +95,14 @@
 
 <br/>
 <br/>
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div id="container1">
     <h1 class="text-center text-white">RECHERCHE</h1>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-12">
 
-      <%# <%= render 'layouts/search_bar' %> 
+      <%# <%= render 'layouts/search_bar' %>
 
 
 
@@ -137,4 +110,4 @@
   </div>
 </div>
 </div>
-</div>
+</div> -->
