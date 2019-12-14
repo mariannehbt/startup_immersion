@@ -4,16 +4,16 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-<<<<<<< HEAD
+
     @events = Event.all.order('start_datetime asc')
-=======
+
     @events = Event.all
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
       marker.infowindow event.title
     end
->>>>>>> front
+
   end
 
   # GET /events/1
@@ -76,14 +76,14 @@ class EventsController < ApplicationController
     end
   end
 
-  def search 
-    if params[:search].blank? 
+  def search
+    if params[:search].blank?
       @events = Event.all
     else
       @events = Event.search(params)
     end
-  end         
-  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

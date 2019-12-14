@@ -16,7 +16,7 @@ class User < ApplicationRecord
   	UserMailer.welcome_email(self).deliver_now
   end
 
-<<<<<<< HEAD
+
   after_create :check_newsletter
   def check_newsletter
     existing_newsletter = Newsletter.find_by(email: self.email)
@@ -24,6 +24,4 @@ class User < ApplicationRecord
       self.update!(newsletter: existing_newsletter)
     end
   end
-=======
->>>>>>> front
 end
