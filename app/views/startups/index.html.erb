@@ -8,27 +8,20 @@
 
     <% @startups.each do |startup| %>
 
-      <tr>
-        <td><%= startup.name %></td>
-        <td><%= startup.catch_phrase %></td>
-        <td><%= startup.website_url %></td>
-        <td><%= startup.description %></td>
-        <td><%= link_to 'Show', startup %></td>
-        <% if current_user && current_user.admin? %>
-          <td><%= link_to 'Edit', edit_admin_startup_path(startup) %></td>
-          <td><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+
+
+
       <ul class="none">
         <strong><li><%= startup.name.upcase %></li></strong>
         <li><%= startup.catch_phrase %></li>
         <li><%= startup.website_url %></li><br />
         <li><%= startup.description %></li>
-        <li><%= link_to 'Show', startup ,class: "btn btn-outline-secondary"%></li>
+        <li><%= link_to 'Show', startup_path(startup.id) ,class: "btn btn-outline-secondary"%></li>
+        <% if current_user && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_admin_startup_path(startup) %></td>
+          <td><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
 
-        <!-- <li><%= link_to 'Edit', edit_startup_path(startup) %></li>
-        <li><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></li> -->
-      </ul> <br />
 
     <% end %>
 
