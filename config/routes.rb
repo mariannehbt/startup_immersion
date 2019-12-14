@@ -39,6 +39,6 @@ Rails.application.routes.draw do
   get 'static/home'
   get '/gallery', to: 'static#gallery'
   # get '/search' => 'events#search', :as => 'search_page'
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 end
