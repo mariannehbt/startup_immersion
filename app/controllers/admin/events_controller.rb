@@ -4,7 +4,7 @@ class Admin::EventsController < Admin::BaseController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.order('start_datetime asc')
   end
 
   # GET /events/1
