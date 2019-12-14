@@ -5,11 +5,6 @@
 <%else%>
   <p>=== Il n'y a pas encore d'event picture lié à cet event ===</p>
 <%end%>
-<h3>Changer d'event picture ?</h3>
-<%= form_tag event_events_pictures_path(@event), multipart: true do %>
-  <%= file_field_tag :event_picture %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
 
 <p>
   <strong>Startup:</strong>
@@ -90,6 +85,11 @@
 <% end %>
 
 <% if current_user && current_user.admin? %>
+<h3>Changer d'event picture ?</h3>
+<%= form_tag event_events_pictures_path(@event), multipart: true do %>
+  <%= file_field_tag :event_picture %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>
   <%= link_to 'Edit', edit_admin_event_path(@event) %> |
   <%= link_to 'Ajouter une pré-inscription', new_event_attendance_path(@event) %> |
   <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |

@@ -5,11 +5,6 @@
 <%else%>
   <p>=== Il n'y a pas encore de startup picture lié à cette startup ===</p>
 <%end%>
-<h3>Changer de startup picture ?</h3>
-<%= form_tag startup_startups_pictures_path(@startup), multipart: true do %>
-  <%= file_field_tag :startup_picture %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
 
 <p>
   <strong>Name:</strong>
@@ -32,6 +27,11 @@
 </p>
 
 <% if current_user && current_user.admin? %>
+<h3>Changer de startup picture ?</h3>
+<%= form_tag startup_startups_pictures_path(@startup), multipart: true do %>
+  <%= file_field_tag :startup_picture %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>
   <%= link_to 'Edit', edit_admin_startup_path(@startup) %> |
   <%= link_to 'Back', :startups %>
 <% else %>
