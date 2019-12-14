@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2019_12_13_190401) do
     t.bigint "startup_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["startup_id"], name: "index_events_on_startup_id"
   end
 

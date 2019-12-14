@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   end
 
   get 'static/home'
+    get '/gallery', to: 'static#gallery'
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

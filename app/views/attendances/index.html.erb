@@ -9,7 +9,6 @@
       <th>Event</th>
       <th>Motivation</th>
       <th>Comment</th>
-      <th>Status</th>
       <th>Created at</th>
       <th>Updated at</th>
       <th colspan="3"></th>
@@ -23,16 +22,8 @@
         <td><%= attendance.event.title %></td>
         <td><%= attendance.motivation %></td>
         <td><%= attendance.comment %></td>
-        <%if attendance.reviewed? && attendance.validated? %>
-          <td>Inscription confirmée !</td>
-        <%elsif attendance.reviewed? && attendance.validated? == false %>
-          <td>Pré-inscription non retenue</td>
-        <% else %>
-          <td>Pré-inscription en attente de validation</td>
-        <% end %>
         <td><%= attendance.created_at %></td>
         <td><%= attendance.updated_at %></td>
-        <td><%= link_to 'Show User', user_path(attendance.user) %></td>
         <td><%= link_to 'Show Event', [@event] %></td>
         <td><%= link_to 'Show Attendance', event_attendance_path(@event, attendance) %></td>
         <td><%= link_to 'Edit Attendance', edit_event_attendance_path(@event, attendance) %></td>
@@ -44,5 +35,4 @@
 
 <br>
 
-<%= link_to 'New Attendance', new_event_attendance_path(@event) %> |
-<%= link_to 'Back', event_path(@event) %>
+<%= link_to 'New Attendance', new_event_attendance_path(@event) %>

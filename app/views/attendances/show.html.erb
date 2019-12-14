@@ -31,21 +31,5 @@
   <%= @attendance.updated_at %>
 </p>
 
-<p>
-  <strong>Status:</strong>
-  <%if @attendance.reviewed? && @attendance.validated? %>
-    Inscription confirmée !
-  <%elsif @attendance.reviewed? && @attendance.validated? == false %>
-    Pré-inscription non retenue
-  <% else %>
-    Pré-inscription en attente de validation</td>
-  <% end %>
-</p>
-
 <%= link_to 'Edit', edit_event_attendance_path(@event, @attendance) %> |
-<% if current_user && current_user.admin? %>
-  <%= link_to 'Back', admin_event_attendances_path(@event) %> |
-<% else %>
-  <%= link_to 'Back', event_path(@event) %> |
-<% end %>
-<td><%= link_to 'Désinscription', event_attendance_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'Back', event_attendances_path(@event) %>
