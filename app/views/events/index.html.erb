@@ -1,96 +1,13 @@
-
-
-
-
 <!-- <div class="container-fluid"> -->
 
   <h1 class="my-5 text-center">LES IMMERSIONS</h1>
-
-
-
   <div class ="container">
     <div class="row " style="align-items:stretch">
-
   <!-- Grid column -->
-<<<<<<< HEAD
-  <div class="mb-3  pics animation mdb-lightbox-ui ">
-    <% @events.each do |event| %>
-<<<<<<< HEAD
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.start_datetime %></td>
-        <td><%= event.duration %></td>
-        <td><%= event.description %></td>
-        <td><%= event.short_location %></td>
-        <td><%= event.adress %></td>
-        <td><%= event.zip_code %></td>
-        <td><%= event.city %></td>
-        <td><%= event.startup.name %></td>
-        <td><%= link_to 'Show', event %></td>
-        <% if current_user && current_user.admin? %>
-          <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
-          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if current_user && current_user.admin? %>
-  <%= link_to 'New Event', new_admin_event_path %>
-  <%= link_to 'Back', :admin_root %>
-<% else %>
-  <%= link_to 'Back', :root %>
-<% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-    <img class="card-img-top" src=<%= asset_path 'photo2.jpg' %> alt="Card image cap">
-    <div class="card-header center"><%= event.title %></div>
-    <div class="card-body">
-        <ul class="none">
-
-          <li><%= event.start_datetime %></li>
-          <li><%= event.duration %> min</li><br />
-          <li class="card-text"><%= event.description %></li><br />
-
-          <li><%= event.short_location %></li>
-          <li><%= event.adress %></li>
-
-           <li> <!-- if user = register -->
-            <%= event.zip_code %>
-            <%= event.city %>
-          </li>
-        </ul>
-
-      </div>
-
-      <div class="card-footer center">
-        <p class="card-text"><a class="btn btn-primary btn-sm" role="button"<%  %>">EN VOIR +"</a>
-          <a class="btn btn-primary btn-sm" href="#" role="button">SE PRÉ-INSCRIRE</a></p>
-
-      </div>
-    <% end %>
-  </div>
-=======
+  <div class="mb-3  pics animation mdb-lightbox-ui "></div>
 <!-- <div  class="card-row"> -->
+
       <% @events.each do |event| %>
->>>>>>> front
 
           <div class=" p-3 col-lg-4 col-sm-12 ">
             <div class="card p-3 shadow">
@@ -101,43 +18,39 @@
                       <li><%= event.start_datetime %></li>
                       <li><%= event.duration %> min</li><br />
                       <li class="card-text"><%= event.description %></li><br />
-
                       <li><%= event.short_location %></li>
+                        <!-- if user = register -->
+                     <!--
+                      <% if current_user %> 
+                        <li>
                       <li><%= event.adress %></li>
-
-                      <li> <!-- if user = register -->
-                        <%= event.zip_code %>
-                        <%= event.city %>
-                      </li>
+                          <%= event.zip_code %>
+                          <%= event.city %>
+                        </li>
+                      <%end%>
+                      -->
                   </ul><br />
-
                 </div>
                 <div class="card-foot center">
-                  <p class="card-text"><a class="btn btn-primary btn-sm" role="button"<%= link_to "EN VOIR +", event_path(event.id), :class =>'btn btn-sm btn-primary'%></a>
-                  <a class="btn btn-primary btn-sm" href="#" role="button">SE PRÉ-INSCRIRE</a></p><br />
+                  <p class="card-text">
+                    <%= link_to "EN VOIR +", event_path(event.id), :class =>'btn btn-sm btn-primary'%>
+                    <%= link_to "SE PRÉ-INSCRIRE", "#", :class =>'btn btn-sm btn-primary'%>
+                  </p><br />
                 </div>
-
-
-
               </div>
             </div>
-
           <% end %>
 <!-- </div> -->
-
-
     </div>
-
-
   </div>
-
-<<<<<<< HEAD
 <%# <%= link_to "Details &raquo;".html_safe, user_path(event_attendances), :class =>'btn btn-sm btn-primary' %> %>
 </body>
->>>>>>> 66093e14cba2823c0a41401f4dd5dcc5271f0af7
-=======
-
 <div class="center mb-5">
-    <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
+    <% if current_user && current_user.admin? %>
+      <%= link_to 'New Event', new_admin_event_path %>
+      <%= link_to 'Back', :admin_root %>
+    <% else %>
+      <%= link_to "<< BACK", :back %>
+    <% end %> 
 </div>
->>>>>>> front
+
