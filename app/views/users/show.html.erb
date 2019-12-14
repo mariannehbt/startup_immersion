@@ -74,6 +74,7 @@
    <h2>Registration of this user :</h2>
 <% end %>
 
+<h3>In the future</h3>
 <table>
   <thead>
     <tr>
@@ -86,7 +87,9 @@
   </thead>
 
   <tbody>
-    <% @user.events.each do |user_attendances| %>
+    <% @users_attendances = @user.events.order('start_datetime ASC') %>
+    <% @users_attendances.each do |user_attendances| %>
+    <% if user_attendances.is_future? %>
       <% att = Attendance.find_by(user_id: @user, event_id: user_attendances) %>
       <tr>
         <td><%= link_to "#{user_attendances.title} &raquo;".html_safe, event_path(user_attendances), :class =>'btn btn-primary' %></td>
@@ -100,6 +103,41 @@
           <td>Pré-inscription en attente de validation</td>
         <% end %>
       </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>In the past</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Attendance</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_attendances = @user.events.order('start_datetime ASC') %>
+    <% @users_attendances.each do |user_attendances| %>
+    <% if user_attendances.is_future? == false %>
+      <% att = Attendance.find_by(user_id: @user, event_id: user_attendances) %>
+      <tr>
+        <td><%= link_to "#{user_attendances.title} &raquo;".html_safe, event_path(user_attendances), :class =>'btn btn-primary' %></td>
+        <td><%= user_attendances.start_datetime %></td>
+        <td><%= link_to "Details &raquo;".html_safe, event_attendance_path(user_attendances, att.id), :class =>'btn btn-primary' %></td>
+        <%if att.reviewed? && att.validated? %>
+          <td>Inscription confirmée !</td>
+        <%elsif att.reviewed? && att.validated? == false %>
+          <td>Pré-inscription non retenue</td>
+        <% else %>
+          <td>Pré-inscription en attente de validation</td>
+        <% end %>
+      </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

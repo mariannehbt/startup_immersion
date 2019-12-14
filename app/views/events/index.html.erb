@@ -20,7 +20,7 @@
 
   <tbody>
     <% @events.each do |event| %>
-    <% if event.start_datetime > DateTime.now %>
+    <% if event.is_future? %>
       <tr>
         <td><%= event.title %></td>
         <td><%= event.start_datetime %></td>
@@ -62,7 +62,7 @@
 
   <tbody>
     <% @events.each do |event| %>
-    <% if event.start_datetime <= DateTime.now %>
+    <% if event.is_future? == false %>
       <tr>
         <td><%= event.title %></td>
         <td><%= event.start_datetime %></td>

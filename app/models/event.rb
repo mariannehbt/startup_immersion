@@ -39,6 +39,10 @@ class Event < ApplicationRecord
   	return start_datetime + (duration * 60)
   end
 
+  def is_future?
+    start_datetime > DateTime.now
+  end
+
   private
 
   def start_datetime_ok?
