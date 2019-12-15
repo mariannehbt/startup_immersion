@@ -26,6 +26,60 @@
   <%= @startup.description %>
 </p>
 
+<h2>Events of this startup :</h2>
+
+<h3>In the future</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @startup_events = @startup.events.order('start_datetime ASC') %>
+    <% @startup_events.each do |startup_event| %>
+    <% if startup_event.is_future? %>
+      <tr>
+        <td><%= link_to "#{startup_event.title} &raquo;".html_safe, event_path(startup_event), :class =>'btn btn-primary' %></td>
+        <td><%= startup_event.start_datetime %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>In the past</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @startup_events = @startup.events.order('start_datetime ASC') %>
+    <% @startup_events.each do |startup_event| %>
+    <% if startup_event.is_future? == false %>
+      <tr>
+        <td><%= link_to "#{startup_event.title} &raquo;".html_safe, event_path(startup_event), :class =>'btn btn-primary' %></td>
+        <td><%= startup_event.start_datetime %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+
+
 <% if current_user && current_user.admin? %>
 <h3>Changer de startup picture ?</h3>
 <%= form_tag startup_startups_pictures_path(@startup), multipart: true do %>
