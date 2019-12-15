@@ -3,16 +3,12 @@ class Event < ApplicationRecord
   belongs_to :startup
   has_many :attendances
   has_many :users, through: :attendances
-<<<<<<< HEAD
 
   validates_uniqueness_of :title, scope: [:start_datetime, :startup_id], message: ' and start date & time already exists for this Startup'
 
-=======
-  
   geocoded_by :adress
   after_validation :geocode, if: :adress_changed?
   
->>>>>>> back_v2
   validates :title,
   presence: true,
   length: {in: 1..140, message: ' must be between 1 and 140 characters long'}
@@ -44,11 +40,8 @@ class Event < ApplicationRecord
   validates :city,
   presence: true,
   length: {in: 1..140, message: ' must be between 5 and 140 characters long'}
-<<<<<<< HEAD
 
   has_one_attached :event_picture
-
-=======
   
   def self.search(params)
     @parameter = params[:search].downcase
@@ -56,7 +49,6 @@ class Event < ApplicationRecord
     events
   end
   
->>>>>>> back_v2
   def end_date
   	return start_datetime + (duration * 60)
   end

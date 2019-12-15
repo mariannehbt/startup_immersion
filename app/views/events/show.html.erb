@@ -1,7 +1,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<<<<<<< HEAD
 <%if @event.event_picture.attached?%>
   <%= image_tag @event.event_picture, alt: 'event_picture' %>
 <%else%>
@@ -142,7 +141,8 @@
   <%= link_to 'Se pré-inscrire', new_event_attendance_path(@event) %> |
 <% end %>
 <%= link_to 'Back', :events %>
-=======
+
+
 <!-- GOOGLE MAP -->
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=[YOUR_KEY_API]&callback=initMap"></script>
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
@@ -258,4 +258,4 @@
 
               </div>
           </div>
->>>>>>> back_v2
+
