@@ -1,6 +1,5 @@
-<h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+
 
 <%= link_to 'Show', @user %> |
 <% if current_user.admin? %>
@@ -8,3 +7,19 @@
 <% else %>
   <%= link_to 'Back', :root %>
 <% end %>
+
+<br/>
+<div class="center">
+  <h1>MODIFIER LE PROFIL</h1>
+</div>
+<br/>
+
+<div class="center">
+
+  <%= render 'form', user: @user %>
+
+  <%= link_to 'Show', @user %> |
+  <%= link_to 'Back', users_path %>
+
+
+</div>

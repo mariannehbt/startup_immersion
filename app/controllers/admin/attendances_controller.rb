@@ -7,7 +7,7 @@ class Admin::AttendancesController < Admin::BaseController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = @event.attendances.order('created_at asc')
+    @attendances = @event.attendances
   end
 
   private
