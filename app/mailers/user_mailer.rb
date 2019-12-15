@@ -24,4 +24,10 @@ class UserMailer < ApplicationMailer
     @url  = 'https://startup-immersion-production.herokuapp.com/' 
     mail(to: @attendance.user.email, subject: 'Invitation Startup Immersion !') 
   end
+
+  def rejection_attendance(attendance)
+    @attendance = attendance
+    @url  = 'https://startup-immersion-production.herokuapp.com/' 
+    mail(to: @attendance.user.email, subject: 'Invitation Startup Immersion !') 
+  end
 end

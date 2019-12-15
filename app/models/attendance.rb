@@ -21,4 +21,11 @@ class Attendance < ApplicationRecord
       UserMailer.confirmation_attendance(self).deliver_now
     end
   end
+
+  after_save :rejection_attendance_send
+  def rejection_attendance_send
+    if self.reviewed? && self.validated? == false
+      UserMailer.rejection_attendance(self).deliver_now
+    end
+  end
 end
