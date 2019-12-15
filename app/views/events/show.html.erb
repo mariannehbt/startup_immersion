@@ -38,12 +38,27 @@
   <%= @event.description %>
 </p>
 
-<p>
-  <strong>Short location:</strong>
-  <%= @event.short_location %>
-</p>
+<% att = Attendance.find_by(user_id: current_user, event_id: @event) %>
+<% if @event.users.include?(current_user) && att.reviewed? && att.validated? %>
+  
 
-<% if current_user && current_user.admin? %>
+  <p>
+    <strong>Adress:</strong>
+    <%= @event.adress %>
+  </p>
+
+  <p>
+    <strong>Zip code:</strong>
+    <%= @event.zip_code %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%= @event.city %>
+  </p>
+
+
+  <% elsif current_user && current_user.admin?%>
   
   <p>
     <strong>Adress:</strong>
@@ -59,6 +74,25 @@
     <strong>City:</strong>
     <%= @event.city %>
   </p>
+
+  <p>
+    <strong>Short location:</strong>
+    <%= @event.short_location %>
+  </p>
+
+  <% else %>
+
+  <p>
+    <strong>Short location:</strong>
+    <%= @event.short_location %>
+  </p>
+
+<% end %>
+
+
+
+
+<% if current_user && current_user.admin? %>
 
   <h2>Registration for this event :</h2>
   <p><%= @event.attendances.count %> registrations</p>
