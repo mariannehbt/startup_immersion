@@ -17,7 +17,7 @@
               <li><% if current_user && current_user.admin? %></li>
 
               <li>
-                <%= link_to 'Edit', edit_admin_startup_path(startup) %>
+                <%= link_to 'Edit', edit_admin_startup_path(startup) %>&nbsp;
                 <%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %>
               </li>
             </ul>
@@ -38,7 +38,7 @@
   <div class="center">
     <% if current_user && current_user.admin? %>
       <%= link_to 'New Startup', new_admin_startup_path %> |
-      <%= link_to 'Back', :admin_root %>
+      <%= link_to 'Back', :admin_root, :class=>"btn btn-primary" %>
     <% else %>
       <%= link_to '<< Back', :root , :class => "btn btn-primary"%>
     <% end %>

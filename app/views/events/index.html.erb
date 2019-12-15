@@ -38,8 +38,8 @@
 
                 </div>
                 <div class="card-foot center">
-                  <a class="btn btn-primary btn-sm" role="button"<%= link_to "EN VOIR +", event_path(event.id), :class =>'btn btn-sm btn-primary'%></a>
-                  <a class="btn btn-primary btn-sm" href="#" role="button">SE PRÉ-INSCRIRE</a><br />
+                  <a role="button"<%= link_to "EN VOIR +", event_path(event.id), :class =>'btn btn-sm btn-primary'%></a>
+                  <a role="button"><%= link_to 'Se pré-inscrire', new_event_attendance_path(event.id), :class=>"btn btn-sm btn-primary"%></a><br />
                 </div>
 
               </div>
