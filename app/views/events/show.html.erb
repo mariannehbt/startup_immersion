@@ -18,7 +18,7 @@
       <div class="container">
             <h1 class="center"><%= @event.title.upcase %></h1>
             <p class="lead">
-              <strong>Start datetime:</strong>
+              <strong>Start date:</strong>
               <%= @event.start_datetime %>
             </p>
             <p class="lead">
@@ -64,6 +64,9 @@
 
           <br />
           <br />
+          <div class="card">
+            <div class="shadow"><%= image_tag 'work.jpg' %></div>
+          </div><br />
 
           <h3>Attendances</h3>
           <% for attendance in @event.attendances %>
