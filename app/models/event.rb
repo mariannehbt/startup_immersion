@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
 
+  validates_uniqueness_of :title, scope: [:start_datetime, :startup_id], message: ' and start date & time already exists for this Startup'
+
   validates :title,
   presence: true,
   length: {in: 1..140, message: ' must be between 1 and 140 characters long'}

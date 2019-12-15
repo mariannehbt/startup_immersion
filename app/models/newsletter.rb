@@ -1,6 +1,8 @@
 class Newsletter < ApplicationRecord
   has_one :user
 
+  validates_uniqueness_of :email
+
   validates :email,
   presence: true
 
