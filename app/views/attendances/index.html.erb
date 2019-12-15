@@ -1,48 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Attendances</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Event</th>
-      <th>Motivation</th>
-      <th>Comment</th>
-      <th>Status</th>
-      <th>Created at</th>
-      <th>Updated at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @attendances.each do |attendance| %>
+<h1 class="center">Attendances</h1>
+  <div class="container">
+  <table>
+    <thead>
       <tr>
-        <td><%= attendance.user.email %></td>
-        <td><%= attendance.event.title %></td>
-        <td><%= attendance.motivation %></td>
-        <td><%= attendance.comment %></td>
-        <%if attendance.reviewed? && attendance.validated? %>
-          <td>Inscription confirmée !</td>
-        <%elsif attendance.reviewed? && attendance.validated? == false %>
-          <td>Pré-inscription non retenue</td>
-        <% else %>
-          <td>Pré-inscription en attente de validation</td>
-        <% end %>
-        <td><%= attendance.created_at %></td>
-        <td><%= attendance.updated_at %></td>
-        <td><%= link_to 'Show User', user_path(attendance.user) %></td>
-        <td><%= link_to 'Show Event', [@event] %></td>
-        <td><%= link_to 'Show Attendance', event_attendance_path(@event, attendance) %></td>
-        <td><%= link_to 'Edit Attendance', edit_event_attendance_path(@event, attendance) %></td>
-        <td><%= link_to 'Destroy Attendance', [@event, attendance], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>User &nbsp;</th>
+        <th>Event &nbsp;</th>
+        <th>Motivation &nbsp;</th>
+        <th>Comment &nbsp;</th>
+        <th>Created at &nbsp;</th>
+        <th>Updated at &nbsp;</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @attendances.each do |attendance| %>
+        <tr>
+          <td><%= attendance.user.email %>&nbsp;</td>
+          <td><%= attendance.event.title %>&nbsp;</td>
+          <td><%= attendance.motivation %>&nbsp;</td>
+          <td><%= attendance.comment %>&nbsp;</td>
+          <td><%= attendance.created_at %>&nbsp;</td>
+          <td><%= attendance.updated_at %>&nbsp;</td>
+          <td><%= link_to 'Show Event', [@event] %>&nbsp;</td>
+          <td><%= link_to 'Show Attendance', event_attendance_path(@event, attendance) %>&nbsp;</td>
+          <td><%= link_to 'Edit Attendance', edit_event_attendance_path(@event, attendance) %>&nbsp;</td>
+          <td><%= link_to 'Destroy Attendance', [@event, attendance], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Attendance', new_event_attendance_path(@event) %> |
-<%= link_to 'Back', event_path(@event) %>
+  <br>
+</div>
+
+<div class="center">
+  <%= link_to 'New Attendance', new_event_attendance_path(@event), :class=>"btn btn-primary" %>
+</div>

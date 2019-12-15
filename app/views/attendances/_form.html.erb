@@ -12,12 +12,7 @@
   <% end %>
 
   <div class="field">
-    <% if current_user && current_user.admin? %>
-      <%= form.label :user %>
-      <%= form.select :user_id, options_from_collection_for_select(User.all.sort, :id, :email, @attendance.event_id), { :prompt => 'Choose from list :'} %>
-    <% else %>
-      <%= form.hidden_field :user_id, :value => current_user.id %>
-    <% end %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
   <div class="field">
@@ -29,20 +24,6 @@
     <%= form.label :comment %>
     <%= form.text_area :comment %>
   </div>
-
-  <div class="field">
-    <% if current_user && current_user.admin? %>
-      <%= form.label :reviewed %>
-      <%= form.select :reviewed, [['Reviewed', true], ['Waiting for review', false]] %>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <% if current_user && current_user.admin? %>
-      <%= form.label :validated %>
-      <%= form.select :validated, [['Validated', true], ['Not Validated', false]] %>
-    </div>
-  <% end %>
 
   <div class="actions">
     <%= form.submit %>

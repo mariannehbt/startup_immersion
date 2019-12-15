@@ -1,5 +1,11 @@
-<h1>New Startup</h1>
+<br/><h1 class="center">New Startup</h1><br/>
 
-<%= render 'form', startup: @startup %>
+<div class="container-fluid">
+  <div style="width:10em;" class="center">  <%= render 'form', startup: @startup %></div>
+</div>
 
-<%= link_to 'Back', startups_path %>
+
+<br/>
+<div class="center">
+  <%= link_to 'Back', startups_path, :class=>" btn btn-primary" %>
+</div>

@@ -4,13 +4,28 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+
     @events = Event.all.order('start_datetime asc')
+
+    @events = Event.all
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.infowindow event.title
+    end
+
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @events = Event.where(id: params[:id])
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.infowindow event.title
+    end
   end
 
   # GET /events/new
@@ -62,6 +77,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].blank?
+      @events = Event.all
+    else
+      @events = Event.search(params)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -70,6 +93,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :start_datetime, :duration, :description, :short_location, :adress, :zip_code, :city, :startup_id)
+      params.require(:event).permit(:title, :start_datetime, :duration, :description, :short_location, :adress, :zip_code, :city, :startup_id, :latitude, :longitude)
     end
 end
