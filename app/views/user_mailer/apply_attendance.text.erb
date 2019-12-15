@@ -1,0 +1,19 @@
+
+<% if @attendance.user.first_name == nil %>
+  Salut <%= @attendance.user.email %> !
+<% else %>
+  Salut <%= @attendance.user.first_name %> !
+<% end %>
+==========================================================
+
+<% datetime = @attendance.event.start_datetime.to_time %>
+<% my_date = DateTime.parse(datetime.to_s).strftime("%d/%m/%Y") %>
+<% my_hour = DateTime.parse(datetime.to_s).strftime("%H:%M")%>
+
+Nous avons bien reçue ta pré-inscription pour l'immersion '<%= @attendance.event.title %>' qui aura lieu le <%= my_date %> à <%= my_hour %> chez <%= @attendance.event.startup.name %>.
+
+Si ta candidature est retenue, tu recevra ton invitation sur l'e-mail suivant : <%= @attendance.user.email %>.
+
+Pour accéder à ton espace personnel, connecte-toi via : <%= @url %>.
+
+À très vite sur Startup Immersion !

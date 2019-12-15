@@ -1,14 +1,27 @@
 class UserMailer < ApplicationMailer
-  default from: 'startup-immersion@laposte.net'
+  default from: 'startup.immersion.thp@gmail.com'
+
+  def confirmation_newsletter(newsletter)
+    @newsletter = newsletter 
+    @url  = 'https://startup-immersion-production.herokuapp.com/' 
+    mail(to: @newsletter.email, subject: 'Newsletter Startup Immersion') 
+  end
  
   def welcome_email(user)
-    #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
     @user = user 
+    @url  = 'https://startup-immersion-production.herokuapp.com/' 
+    mail(to: @user.email, subject: 'Bienvenue chez Startup Immersion !') 
+  end
 
-    #on définit une variable @url qu'on utilisera dans la view d’e-mail
-    @url  = 'https://start-up-immersion-dev.herokuapp.com/' 
+  def apply_attendance(attendance)
+    @attendance = attendance
+    @url  = 'https://startup-immersion-production.herokuapp.com/' 
+    mail(to: @attendance.user.email, subject: 'Pré-Inscription Startup Immersion') 
+  end
 
-    # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-    mail(to: @user.email, subject: 'Bienvenue chez nous !') 
+  def confirmation_attendance(attendance)
+    @attendance = attendance
+    @url  = 'https://startup-immersion-production.herokuapp.com/' 
+    mail(to: @attendance.user.email, subject: 'Invitation Startup Immersion !') 
   end
 end

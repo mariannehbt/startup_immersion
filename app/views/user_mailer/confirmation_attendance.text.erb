@@ -1,0 +1,24 @@
+
+<% if @attendance.user.first_name == nil %>
+  Félicitations <%= @attendance.user.email %> !
+<% else %>
+  Félicitations <%= @attendance.user.first_name %> !
+<% end %>
+==========================================================
+
+<% datetime = @attendance.event.start_datetime.to_time %>
+<% my_date = DateTime.parse(datetime.to_s).strftime("%d/%m/%Y") %>
+<% my_hour = DateTime.parse(datetime.to_s).strftime("%H:%M")%>
+
+Ta canditature à été retenue pour l'immersion '<%= @attendance.event.title %>' chez <%= @attendance.event.startup.name %>.
+
+Voici le récapitulatif des informations concernant cette immersion :
+Date : <%= my_date %>
+Heure : <%= my_hour %>
+Adresse : <%= @attendance.event.adress %>, <%= @attendance.event.zip_code %> <%= @attendance.event.city %>
+
+Tu recevras toute information de dernière minute sur l'e-mail suivant : <%= @attendance.user.email %>.
+
+Pour accéder à ton espace personnel, connecte-toi via : <%= @url %>.
+
+À très vite sur Startup Immersion !
