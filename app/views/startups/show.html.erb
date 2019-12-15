@@ -23,12 +23,7 @@
   <%= @startup.description %>
 </p>
 
-<% if current_user && current_user.admin? %>
-  <%= link_to 'Edit', edit_admin_startup_path(@startup) %> |
-  <%= link_to 'Back', :startups %>
-<% else %>
-  <%= link_to 'Back', :startups %>
-<% end %>
+
 
 
 
@@ -40,5 +35,10 @@
   </p>
 </div><br /><br />
 <div class="center">
-    <a class="btn btn-primary" role="button" <%= link_to "<< BACK", :back %></a>
+  <% if current_user && current_user.admin? %>
+    <%= link_to 'Edit', edit_admin_startup_path(@startup) %> |
+    <%= link_to 'Back', :startups, :class=>"btn btn-primary" %>
+  <% else %>
+    <%= link_to 'Back', :startups, :class=>"btn btn-primary" %>
+  <% end %>
 </div>
